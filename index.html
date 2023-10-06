@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- !  WEBPACK -->
+    <!-- <script src="https://unpkg.com/lodash@4.17.20"></script> -->
+
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
+
+    <title>My Stats</title>
+</head>
+
+
+
+<body class="my-stats-bkg">
+    <header>
+        <div class="header-content">
+            <h1 class="stats-name" id="user-ID">Juan</h1>
+            <div class="metres">
+                <p class="stats-distance" id="distance">8</p>
+                <p class="stats-distance">m</p>
+            </div>
+            <a href="new-match.html"><img src="img/NewMatch.svg" alt="" class="new-game"></a>
+        </div>
+
+    </header>
+
+
+    <main class="">
+
+<!-- Arenas -->
+        <div class="stats-arena">
+            <p style="color: black; padding-bottom: 5px; font-size: 0.7em;">MY ARENAS:</p>
+            <p>Berlin HQ</p>
+        </div>
+
+<!-- Performance -->
+        <section>
+            <div class="stats-subtitle-box">
+                <h4>PERFORMANCE</h4>
+            </div>
+
+            <div class="stats-performance-box">
+                <img src="img/efficiency-icon.svg" alt="" class="stats-icon">
+                <p class="stats-figure" id="myEfficiency">45%</p>
+                <img src="img/turbo-icon.svg" alt="" class="stats-icon">
+                <p class="stats-figure" id="myTurbo">25%</p>
+                <p class="stats-small-label stats-label">EFFICIENCY</p>
+                <p class="stats-small-label stats-label">TURBO POWER</p>
+            </div>
+
+            <div class="stats-history-box">                                                                               
+                <p>EFFICIENCY HISTORY (%)</p>                
+                <div id="chart"></div>
+
+            <div class="avg-max-box">
+
+                <p class="avg-max-subtitle">POINTS PER MATCH</p>
+                <img src="img/average.svg" alt="average icon" class="average">
+                <p class="stats-figure">350</p>
+                <img src="img/maximum.svg" alt="average icon" class="average">
+                <p class="stats-figure">450</p>
+                <p class="label-avg">AVERAGE</p>
+                <p class="label-avg">MAXIMUM</p>
+
+                <p class="avg-max-subtitle">POINTS PER SONG</p>
+                <img src="img/average.svg" alt="average icon" class="average">
+                <p class="stats-figure">23</p>
+                <img src="img/maximum.svg" alt="average icon" class="average">
+                <p class="stats-figure">47</p>
+                <p class="label-avg">AVERAGE</p>
+                <p class="label-avg">MAXIMUM</p>
+    
+            </div>
+
+        </section>
+
+<!-- Playtime -->
+    <section >
+        <div class="stats-subtitle-box">
+            <h4>PLAYTIME</h4>
+        </div>
+
+        <div class="stats-playtime-box">
+            <h2 class="stats-orange-text">Playtime 2022</h2>
+            <img src="img/Toche-Icon-O-T.svg" alt="" class="playtime-icon">
+            <p class="playtime-label">Matches Played</p>
+            <p class="playime-figure">120</p>
+            <img src="img/winner.svg" alt="" class="playtime-icon">
+            <p class="playtime-label">Matches Won</p>
+            <p class="playime-figure">80</p>
+            <img src="img/turbo-icon.svg" alt="" class="playtime-icon">
+            <p class="playtime-label">Turbo Power</p>
+            <p class="playime-figure">66%</p>
+        </div>
+
+        <div class="stats-playtime-box">
+            <h2 class="stats-orange-text">All-time Playtime</h2>
+            <img src="img/Toche-Icon-O-T.svg" alt="" class="playtime-icon">
+            <p class="playtime-label">Matches Played</p>
+            <p class="playime-figure">1200</p>
+            <img src="img/winner.svg" alt="" class="playtime-icon">
+            <p class="playtime-label">Matches Won</p>
+            <p class="playime-figure">850</p>
+            <img src="img/turbo-icon.svg" alt="" class="playtime-icon">
+            <p class="playtime-label">Turbo Power</p>
+            <p class="playime-figure">66%</p>
+        </div>
+
+    </section>
+
+<!-- Standing -->
+        <section>
+            <div class="stats-subtitle-box">
+                <h4>STANDINGS</h4>
+            </div>
+
+            <div class="stats-ranking-box">
+                <h2 class="stats-orange-text stats-ranking-text">Alfa Cup</h2>
+                <p class="stat-rank-label">Standing in cup:</p>
+                <span class="playime-figure">23</span>
+                <p class="stat-rank-label">Players:</p>
+                <span class="playime-figure">50</span>
+                <p class="stat-rank-label">Category:</p>
+                <span class="playime-figure">Arena +</span>
+                <!-- TODO add actual cup page -->
+                <a href="cup-season.html" class="account-action">SEE CUP STANDINGS</a>
+            </div>
+
+            <div class="stats-ranking-box">
+                <h2 class="stats-orange-text stats-ranking-text">Spring Cup</h2>
+                <p class="stat-rank-label">Standing in cup:</p>
+                <span class="playime-figure">23</span>
+                <p class="stat-rank-label">Players:</p>
+                <span class="playime-figure">50</span>
+                <p class="stat-rank-label">Category:</p>
+                <span class="playime-figure">Arena +</span>
+                <!-- TODO add actual cup page -->
+                <a href="cup-season.html" class="account-action">SEE CUP STANDINGS</a>
+            </div>
+
+            <div class="stats-ranking-box">
+                <h2 class="stats-orange-text stats-ranking-text">My Ranking 2023</h2>
+                <span class="stat-rank-figure">23</span>
+                <span class="stat-rank-figure">2,309</span>
+                <p>MY ARENA</p>
+                <p>WORLD</p>
+                <a href="ranking.html" class="account-action">SEE FULL RANKING</a>
+            </div>
+
+        </section>
+
+<!-- Titles -->
+        <section>
+            <div class="stats-subtitle-box">
+                <h4>TITLES</h4>
+            </div>
+
+            <div class="stats-titles">
+                <img src="img/cup-titles.svg" alt="" class="titles-icon">
+                <span class="titles-won">TITLES WON</span>
+                <span class="titles">13</span>
+            </div>
+
+            <div  class="stats-titles-box">
+                <h2 class="stats-title-heading">My Titles</h2>
+                <div class="titles-rows">
+                    <span>Summer Cup 2023</span>
+                    <span class="title-date">2023.09</span>
+                    <span>Crazy Fun</span>
+                    <span class="title-date">2023.08</span>                    
+                    <span>Crazy Fun</span>
+                    <span class="title-date">2023.09</span>                   
+                    <span>Crazy Fun</span>
+                    <span class="title-date">2023.09</span>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="spacer150"></div>
+
+    </main>
+
+
+    <!-- Navigation  -->
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-link current">
+            <img src="img/Stats.svg" alt="new match">
+            <span class="nav-text">My Stats</span>
+        </a>
+
+        <a href="matches.html" class="nav-link">
+            <img src="img/MatchesOFF.svg" alt="">
+            <span class="nav-text">Matches</span>
+        </a>
+
+        <a href="ranking.html" class="nav-link">
+            <img src="img/RankingOFF.svg" alt="">
+            <span class="nav-text">Ranking</span>
+        </a>
+
+        <a href="cups.html" class="nav-link">
+            <img src="img/CupsOFF.svg" alt="">
+            <span class="nav-text">Cups</span>
+        </a>
+
+        <a href="account.html" class="nav-link">
+            <img src="img/AccountOff.svg" alt="">
+            <span class="nav-text">Account</span>
+        </a>
+    </nav>
+
+    <!-- script -->
+    <script src="index.js"></script>
+    <script src ="img/d3.v7.min.js"></script>
+    <script src ="efficiency.js"></script>
+    
+    <!-- <script src="/dist/bundle.js"></script> -->
+</body>
+</html>

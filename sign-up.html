@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
+
+    <title>Sign Up</title>
+</head>
+
+
+
+<body>
+
+    <header>
+        <div class="header-back">
+            <a href="account.html" class="back-arrow" ><img src="img/Back.svg" alt="" class="icon-arrow"></a>
+            <h1>SIGN UP</h1>
+        </div>
+
+    </header>
+
+ 
+    <main class="">
+
+        <!-- ! need to adjust type, id, name, now just text, define "country code" -->
+        <section class="login-box">
+           
+
+            <label for="name" class="account-label">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="First Name, Last Name" required class="account-text contact-text">
+
+            <p  class="login-explainer">T-shirt Name (username): only letters and numbers; 3 to 16 characters long</p>
+            <label for="tshirtName" class="account-label">T-shirt Name</label>
+            <input type="name" id="tshirtName" name="tshirtName" placeholder="The name on your t-shirt" required class="account-text contact-text">
+
+            <label for="nationality" class="account-label">Nationality</label>
+            <input type="text" id="nationality" name="nationality" placeholder="Your nationality" required class="account-text contact-text">
+
+            <label for="birthday" class="account-label">Date of Birth</label>
+            <input type="date" id="birthday" name="birthday" placeholder=" eg. 2002-06-27" required class="account-text contact-text">
+
+            <!-- <label for="distance" class="account-label">Distance</label>
+            <input type="number" id="birthday" name="birthday" placeholder=" eg. 2002-06-27" required class="account-text contact-text"> -->
+
+            <label for="sliderDistance" class="account-label">Distance</label><br>
+            <div class="sliderBox">
+                <input type="range" id="sliderDistance" name="sliderDistance" min="3" max="8" value="3" class="slideDist">
+            <!-- Display the selected value -->
+            <output for="sliderDistance">3</output>
+            </div>
+            
+
+            <label for="name" class="account-label">Country Code:</label>
+            <input type="number" id="telephone" name="telephone" placeholder="Country code, don't add zeros" required class="account-text contact-text">
+            
+            <label for="name" class="account-label">Mobile Phone</label>
+            <input type="number" id="telephone" name="telephone" placeholder="Mobile phone" required class="account-text contact-text">
+
+            <label for="email" class="account-label">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Input your email" required class="account-text contact-text"/>
+
+            <div class="login-explainer">Your password must contain:<br>
+                — At least 8 characters <br>
+                — Uppercase and lowercase letters <br>
+                — Numbers <br>
+                — Special characters</div>
+
+            <label for="password" class="account-label">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Input your password" required class="account-text contact-text"/>
+
+            <label for="passwordConfirm" class="account-label">Confirm Password:</label>
+            <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="And again your password" required class="account-text contact-text"/>
+
+            
+<!-- terms checkbox -->
+            <div class="terms-checkbox">
+                <input type="checkbox" id="terms-agree" class="terms-agree-box" required>
+                <label for="terms-agree" class="">I agree to the <a href="terms.html" class="">Terms of Service</a> and <a href="privacy.html" class="">Privacy Policy</a></label>
+            </div> 
+
+            <!-- ! confirmation pop up saying welcoe, after OK comes the distance -->
+            <a href="choose-distance.html">
+                <div class="button-div">
+                    <input type="submit" value="CONFIRM"  class="button"/><br>
+                    
+                </div>  
+            </a>
+
+
+
+
+<!-- ! verification code ?? -->
+
+            <!-- <div class="info-cell">
+                <label for="verification-code" class="account-label">Verification Code:</label>
+                <div>
+                    <input type="number" id="verification-code" name="verification-code" placeholder="######" required class="verification-code text-field">
+                    <button type="button" class="code-button">GET CODE</button>
+                </div>
+            </div> -->
+           
+            
+        </section>       
+       
+        <div class="spacer150"></div>
+
+    </main>
+
+
+
+<!-- background & script -->
+    <script src="src/index.js"></script>
+
+    <script>
+        // JavaScript to display the slider value dynamically
+        const slider = document.getElementById("sliderDistance");
+        const output = document.querySelector("output[for='sliderDistance']");
+        output.textContent = slider.value; // Display the default value
+
+        slider.addEventListener("input", function() {
+            output.textContent = slider.value; // Update the displayed value when the slider is moved
+        });
+    </script>
+
+</body>
+</html>

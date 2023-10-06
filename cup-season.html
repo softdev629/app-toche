@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
+
+    <!-- ! add title as variable -->
+    <title>Seasonal Cup</title>
+</head>
+
+
+
+<body>
+    <header>
+        <div class="header-back">
+            <a href="cups.html" class="back-arrow" ><img src="img/Back.svg" alt="" class="icon-arrow"></a>
+            <!-- ! add title as variable -->
+            <h1>Autumn Cup 2023</h1>
+        </div>
+
+    </header>
+
+
+    <main class="">
+        
+        <div class="tabs-container">
+
+            <div class="tabs-bkg">
+                <div class="button-container">
+                    <button onclick = "showPanel(0)">STANDINGS</button>
+                    <button onclick = "showPanel(1)">MATCHES</button>
+                    <button onclick = "showPanel(2)">INFO</button>
+                </div>
+            </div>
+
+<!-- Cup Standings  TAB-->
+            <div class="tab-panel">
+                <div class="standing-header">
+                    <p>#</p>
+                    <p class="player-name">Player</p>
+                    <p>D</p>
+                    <p>M</p>
+                    <p>W</p>
+                    <p>S</p>
+                    <p>E%</p>
+                    <p>TP</p>
+                </div>
+        
+                <table style="width: 100%" class="basic-table ranking-table">        
+                    <tbody>
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+                        <tr class="cup-row">
+                            <td id="rank-position">1</td>
+                            <td id="player" class="player-name table-highlight">Juan</td>
+                            <td id="distance" class="distance">8</td>
+                            <td id="matches-played">25</td>
+                            <td id="matches-won">20</td>
+                            <td id="total-songs">540</td>
+                            <td id="efficiency">30%</td>
+                            <td id="turbo-power" class="table-highlight">55%</td>
+                        </tr>
+        
+
+                    </tbody>
+        
+        
+                </table> 
+
+            </div>
+
+<!-- Cup MAtches TAB-->
+            <div class="tab-panel">
+                <div class="matches-header"  style="top: 100px;" >
+                    <DIV class="match-header-r1">
+                        <p>ARENA</p>
+                        <p>DATE</p>
+                        <p>CATEGORY</p>
+                    </DIV>
+                    <div class="match-header-r2">
+                        <P class="match-player">PLAYER</P>
+                        <p>S</p>
+                        <p>P</p>
+                        <p>MAX</p>
+                        <p>E%</p>
+                    </div>
+        
+                </div>
+
+                <table style="width: 100%" class="basic-table table-matches">
+        
+                    <tbody>
+                        <tr>
+                            <td id="arena">Berlin HQ</td>
+                            <td id="date">2022.11.30</td>
+                            <td id="category">Arena</td>
+        
+                            <td id="player1">Juan</td>
+                            <td id="p1Songs">13</td>
+                            <td id="p1Points">313</td>
+                            <td id="p1MaxPS">23</td>
+                            <td id="p1Efficiency">26%</td>
+        
+                            <td id="player2">Puki</td>
+                            <td id="p2Songs">12</td>
+                            <td id="p2Points">303</td>
+                            <td id="p2MaxPS">21</td>
+                            <td id="p2Efficiency">24%</td>
+                        </tr>
+
+                        <tr>
+                            <td id="arena">Berlin HQ</td>
+                            <td id="date">2022.11.30</td>
+                            <td id="category">Arena</td>
+        
+                            <td id="player1">Juan</td>
+                            <td id="p1Songs">13</td>
+                            <td id="p1Points">313</td>
+                            <td id="p1MaxPS">23</td>
+                            <td id="p1Efficiency">26%</td>
+        
+                            <td id="player2">Puki</td>
+                            <td id="p2Songs">12</td>
+                            <td id="p2Points">303</td>
+                            <td id="p2MaxPS">21</td>
+                            <td id="p2Efficiency">24%</td>
+                        </tr>
+                        <tr>
+                            <td id="arena">Berlin HQ</td>
+                            <td id="date">2022.11.30</td>
+                            <td id="category">Arena</td>
+        
+                            <td id="player1">Juan</td>
+                            <td id="p1Songs">13</td>
+                            <td id="p1Points">313</td>
+                            <td id="p1MaxPS">23</td>
+                            <td id="p1Efficiency">26%</td>
+        
+                            <td id="player2">Puki</td>
+                            <td id="p2Songs">12</td>
+                            <td id="p2Points">303</td>
+                            <td id="p2MaxPS">21</td>
+                            <td id="p2Efficiency">24%</td>
+                        </tr>
+                        <tr>
+                            <td id="arena">Berlin HQ</td>
+                            <td id="date">2022.11.30</td>
+                            <td id="category">Arena</td>
+        
+                            <td id="player1">Juan</td>
+                            <td id="p1Songs">13</td>
+                            <td id="p1Points">313</td>
+                            <td id="p1MaxPS">23</td>
+                            <td id="p1Efficiency">26%</td>
+        
+                            <td id="player2">Puki</td>
+                            <td id="p2Songs">12</td>
+                            <td id="p2Points">303</td>
+                            <td id="p2MaxPS">21</td>
+                            <td id="p2Efficiency">24%</td>
+                        </tr>
+                        <tr>
+                            <td id="arena">Berlin HQ</td>
+                            <td id="date">2022.11.30</td>
+                            <td id="category">Arena</td>
+        
+                            <td id="player1">Juan</td>
+                            <td id="p1Songs">13</td>
+                            <td id="p1Points">313</td>
+                            <td id="p1MaxPS">23</td>
+                            <td id="p1Efficiency">26%</td>
+        
+                            <td id="player2">Puki</td>
+                            <td id="p2Songs">12</td>
+                            <td id="p2Points">303</td>
+                            <td id="p2MaxPS">21</td>
+                            <td id="p2Efficiency">24%</td>
+                        </tr>
+                        <tr>
+                            <td id="arena">Berlin HQ</td>
+                            <td id="date">2022.11.30</td>
+                            <td id="category">Arena</td>
+        
+                            <td id="player1">Juan</td>
+                            <td id="p1Songs">13</td>
+                            <td id="p1Points">313</td>
+                            <td id="p1MaxPS">23</td>
+                            <td id="p1Efficiency">26%</td>
+        
+                            <td id="player2">Puki</td>
+                            <td id="p2Songs">12</td>
+                            <td id="p2Points">303</td>
+                            <td id="p2MaxPS">21</td>
+                            <td id="p2Efficiency">24%</td>
+                        </tr>
+                        <tr>
+                            <td id="arena">Berlin HQ</td>
+                            <td id="date">2022.11.30</td>
+                            <td id="category">Arena</td>
+        
+                            <td id="player1">Juan</td>
+                            <td id="p1Songs">13</td>
+                            <td id="p1Points">313</td>
+                            <td id="p1MaxPS">23</td>
+                            <td id="p1Efficiency">26%</td>
+        
+                            <td id="player2">Puki</td>
+                            <td id="p2Songs">12</td>
+                            <td id="p2Points">303</td>
+                            <td id="p2MaxPS">21</td>
+                            <td id="p2Efficiency">24%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+<!-- Cup Info TAB-->
+            <div class="tab-panel">
+                <div class="content-box">
+                    
+                    <div class="cup-info-box">
+                        <h2 class="cup-info-title">Autumn Cup 2023</h2>
+                        <p class="cup-info-label">Arena</p>
+                        <p>Berlin HQ</p>
+                        <p class="cup-info-label">Category</p>
+                        <p>Arean</p>
+                        <p class="cup-info-label">League Points</p>
+                        <p id="leaguePoints">100</p>
+                    </div>
+
+                    <img src="img/Toche-Logo-O-T.svg" alt="toche logo" class="cup-logo">
+
+                    <div class="cup-info-box">
+                        <p class="cup-info-label">Prizes</p>
+                        <p>Trophy</p>
+                        <p class="cup-info-label">Winning Parameters</p>
+                        <p>Turbo Power <br> Efficiency <br> Songs</p>
+                    </div>
+
+                    <img src="img/Toche-Logo-O-T.svg" alt="toche logo" class="cup-logo">
+
+                    <div class="cup-info-box">
+                        <p class="cup-info-label">Players</p>
+                        <p>8</p>
+                        <p class="cup-info-label">Rounds</p>
+                        <p>None</p>
+                        <p class="cup-info-label">Total Matches</p>
+                        <p>56</p>
+                        <p class="cup-info-label">Timeframe</p>
+                        <p class="cup-info-padding">2023.10.01 <br> 2023.12.31</p>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+        <div class="spacer150"></div>
+    </main>
+
+
+<!-- script -->
+    <script src="index.js"></script>
+    <!-- for TABS & INFO legend -->
+    <script src="main.js"></script>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var tabButtons = document.querySelectorAll('.tabs-container .button-container button');
+    var tabPanels = document.querySelectorAll(".tabs-container .tab-panel");
+
+
+    function showPanel(panelIndex){
+        tabButtons.forEach(function(node) {
+            node.style.background = "";
+            node.style.color = "";
+        });
+        tabButtons[panelIndex].style.background = "#007AFF";
+        tabButtons[panelIndex].style.color = "#F6F6F4";
+
+        tabPanels.forEach(function(node) {
+            node.style.display = "none";
+        });
+        tabPanels[panelIndex].style.display = "block";
+
+    };
+
+    showPanel(0);
+});
+    </script> -->
+
+</body>
+</html>
