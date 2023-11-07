@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" href="/favicon.png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
 
@@ -14,7 +20,7 @@
   <body>
     <header>
       <div class="header-back">
-        <a href="account.html" class="back-arrow"
+        <a href="/account.html" class="back-arrow"
           ><img src="/img/Back.svg" alt="" class="icon-arrow"
         /></a>
         <h1>SIGN UP</h1>
@@ -24,160 +30,170 @@
     <main class="">
       <!-- ! need to adjust type, id, name, now just text, define "country code" -->
       <section class="login-box">
-        <label for="name" class="account-label">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="First Name, Last Name"
-          required
-          class="account-text contact-text"
-        />
+        <form name="signup" id="signup-form">
+          <label for="name" class="account-label">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="First Name, Last Name"
+            required
+            class="account-text contact-text"
+          />
 
-        <p class="login-explainer">
-          T-shirt Name (username): only letters and numbers; 3 to 16 characters
-          long
-        </p>
-        <label for="tshirtName" class="account-label">T-shirt Name</label>
-        <input
-          type="name"
-          id="tshirtName"
-          name="tshirtName"
-          placeholder="The name on your t-shirt"
-          required
-          class="account-text contact-text"
-        />
+          <p class="login-explainer">
+            T-shirt Name (username): only letters and numbers; 3 to 16
+            characters long
+          </p>
+          <label for="tshirtName" class="account-label">T-shirt Name</label>
+          <input
+            type="name"
+            id="tshirtName"
+            name="tshirtName"
+            placeholder="The name on your t-shirt"
+            required
+            class="account-text contact-text"
+          />
 
-        <label for="nationality" class="account-label">Nationality</label>
-        <input
-          type="text"
-          id="nationality"
-          name="nationality"
-          placeholder="Your nationality"
-          required
-          class="account-text contact-text"
-        />
+          <label for="nationality" class="account-label">Nationality</label>
+          <input
+            type="text"
+            id="nationality"
+            name="nationality"
+            placeholder="Your nationality"
+            required
+            class="account-text contact-text"
+          />
 
-        <label for="birthday" class="account-label">Date of Birth</label>
-        <input
-          type="date"
-          id="birthday"
-          name="birthday"
-          placeholder=" eg. 2002-06-27"
-          required
-          class="account-text contact-text"
-        />
+          <label for="birthday" class="account-label">Date of Birth</label>
+          <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            placeholder=" eg. 2002-06-27"
+            required
+            class="account-text contact-text"
+          />
 
-        <!-- <label for="distance" class="account-label">Distance</label>
+          <!-- <label for="distance" class="account-label">Distance</label>
             <input type="number" id="birthday" name="birthday" placeholder=" eg. 2002-06-27" required class="account-text contact-text"> -->
 
-        <label for="sliderDistance" class="account-label">Distance</label><br />
-        <div class="sliderBox">
+          <label for="sliderDistance" class="account-label">Distance</label
+          ><br />
+          <div class="sliderBox">
+            <input
+              type="range"
+              id="sliderDistance"
+              name="sliderDistance"
+              min="3"
+              max="8"
+              value="3"
+              class="slideDist"
+            />
+            <!-- Display the selected value -->
+            <output for="sliderDistance">3</output>
+          </div>
+
+          <label for="name" class="account-label">Country Code:</label>
           <input
-            type="range"
-            id="sliderDistance"
-            name="sliderDistance"
-            min="3"
-            max="8"
-            value="3"
-            class="slideDist"
-          />
-          <!-- Display the selected value -->
-          <output for="sliderDistance">3</output>
-        </div>
-
-        <label for="name" class="account-label">Country Code:</label>
-        <input
-          type="number"
-          id="countryCode"
-          name="countryCode"
-          placeholder="Country code, don't add zeros"
-          required
-          class="account-text contact-text"
-        />
-
-        <label for="name" class="account-label">Mobile Phone</label>
-        <input
-          type="number"
-          id="telephone"
-          name="telephone"
-          placeholder="Mobile phone"
-          required
-          class="account-text contact-text"
-        />
-
-        <label for="email" class="account-label">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Input your email"
-          required
-          class="account-text contact-text"
-        />
-
-        <div class="login-explainer">
-          Your password must contain:<br />
-          — At least 8 characters <br />
-          — Uppercase and lowercase letters <br />
-          — Numbers <br />
-          — Special characters
-        </div>
-
-        <label for="password" class="account-label">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Input your password"
-          required
-          class="account-text contact-text"
-        />
-
-        <label for="passwordConfirm" class="account-label"
-          >Confirm Password:</label
-        >
-        <input
-          type="password"
-          id="passwordConfirm"
-          name="passwordConfirm"
-          placeholder="And again your password"
-          required
-          class="account-text contact-text"
-        />
-
-        <!-- terms checkbox -->
-        <div class="terms-checkbox">
-          <input
-            type="checkbox"
-            id="terms-agree"
-            class="terms-agree-box"
+            type="number"
+            id="countryCode"
+            name="countryCode"
+            placeholder="Country code, don't add zeros"
             required
+            pattern="\+\d+"
+            class="account-text contact-text"
           />
-          <label for="terms-agree" class=""
-            >I agree to the
-            <a href="terms.html" class="">Terms of Service</a> and
-            <a href="privacy.html" class="">Privacy Policy</a></label
-          >
-        </div>
 
-        <!-- ! confirmation pop up saying welcoe, after OK comes the distance -->
-
-        <div class="button-div">
+          <label for="name" class="account-label">Mobile Phone</label>
           <input
-            id="btn-submit"
-            type="submit"
-            value="CONFIRM"
-            class="button"
-          /><br />
-        </div>
+            type="number"
+            id="telephone"
+            name="telephone"
+            placeholder="Mobile phone"
+            required
+            class="account-text contact-text"
+            pattern="\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$"
+          />
+
+          <label for="email" class="account-label">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Input your email"
+            required
+            class="account-text contact-text"
+          />
+
+          <div class="login-explainer">
+            Your password must contain:<br />
+            — At least 8 characters <br />
+            — Uppercase and lowercase letters <br />
+            — Numbers <br />
+            — Special characters
+          </div>
+
+          <label for="password" class="account-label">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Input your password"
+            required
+            minlength="8"
+            class="account-text contact-text"
+          />
+
+          <label for="passwordConfirm" class="account-label"
+            >Confirm Password:</label
+          >
+          <input
+            type="password"
+            id="passwordConfirm"
+            name="passwordConfirm"
+            placeholder="And again your password"
+            required
+            minlength="8"
+            class="account-text contact-text"
+          />
+
+          <!-- terms checkbox -->
+          <div class="terms-checkbox">
+            <input
+              type="checkbox"
+              id="terms-agree"
+              class="terms-agree-box"
+              required
+            />
+            <label for="terms-agree" class=""
+              >I agree to the
+              <a href="terms.html" class="">Terms of Service</a> and
+              <a href="privacy.html" class="">Privacy Policy</a></label
+            >
+          </div>
+
+          <!-- ! confirmation pop up saying welcoe, after OK comes the distance -->
+
+          <div class="button-div">
+            <input
+              id="btn-submit"
+              type="submit"
+              value="CONFIRM"
+              class="button"
+            /><br />
+          </div>
+        </form>
       </section>
 
       <div class="spacer150"></div>
     </main>
 
     <!-- background & script -->
-
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
       import {
@@ -207,6 +223,7 @@
       const db = getFirestore(app);
 
       const onSubmit = () => {
+        event.preventDefault();
         const name = document.getElementById("name").value;
         const tshirtName = document.getElementById("tshirtName").value;
         const nationality = document.getElementById("nationality").value;
@@ -216,23 +233,15 @@
         const telephone = document.getElementById("telephone").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        const passwordConfirm =
-          document.getElementById("passwordConfirm").value;
+        const passwordConfirm = document.getElementById("passwordConfirm");
         const termsAgree = document.getElementById("terms-agree").value;
-
-        console.log(
-          name,
-          tshirtName,
-          nationality,
-          birthday,
-          sliderDistance,
-          countryCode,
-          telephone,
-          email,
-          password,
-          passwordConfirm,
-          termsAgree
-        );
+        if (password !== passwordConfirm.value) {
+          Toastify({
+            text: "Password doesn't match",
+            style: { background: "#e74c3c" },
+          }).showToast();
+          return;
+        }
 
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
@@ -246,20 +255,28 @@
               countryCode,
               telephone,
               email,
-              password,
-              passwordConfirm,
               termsAgree,
+            }).then(() => {
+              Toastify({
+                text: "Signed up successfully",
+                style: { background: "#2ecc71" },
+              }).showToast();
             });
-            console.log(user);
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
+            if (errorCode === "auth/email-already-in-use")
+              Toastify({
+                text: "Email already in use",
+                style: { background: "#e74c3c" },
+              }).showToast();
+            console.log(errorCode);
           });
       };
-
-      document.getElementById("btn-submit").addEventListener("click", onSubmit);
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", onSubmit);
     </script>
 
     <script>

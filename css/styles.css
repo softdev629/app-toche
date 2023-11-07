@@ -9,8 +9,16 @@
   --orange: #f47b00;
   --blue: rgb(0, 122, 255);
   --pearl: #f6f6f4;
+  --danger: #e74c3c;
+  --success: #2ecc71;
+  --info: #3992d0;
+  --warning: #f39c12;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-padding-top: 120px;
 }
 
 /* reset */
