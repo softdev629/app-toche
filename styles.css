@@ -1444,7 +1444,7 @@ table {
     background: var(--white);
     border-radius: 15px;
     margin: 20px 0;
-    padding: 0 20px 1px;
+    padding: 20px;
     box-sizing: border-box;
     align-items: center;
     width: calc(100%-30px);
@@ -1525,7 +1525,7 @@ table {
     padding-bottom: 5px;
 }
 
-/*  */
+/* RULE BOOK */
 
 .book-cover{
     width: 100%;
@@ -1552,6 +1552,45 @@ table {
     padding: 50px 0px;
     color: var(--pearl);
     color: var(--blue);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.scroll-container {
+    overflow-y: scroll; 
+    scroll-snap-type: y mandatory; 
+}
+
+/* SCROLL DOWN NOT WORKING PRECISELY */
+
+.scroll-item {
+    scroll-snap-align: start; 
+}
+
+#rb-balls {
+    scroll-margin-top: 100px; 
+}
+
+#rb-court {
+    scroll-margin-top: 100px; 
+}
+
+#rb-target {
+    scroll-margin-top: 100px; 
+}
+
+#rb-wall {
+    scroll-margin-top: 100px; 
+}
+
+#rb-scoresheet {
+    scroll-margin-top: 100px; 
+}
+
+#rb-top1 {
+    scroll-margin-top: 100px; 
 }
 
 .section-links{
@@ -1611,7 +1650,6 @@ table {
 
 .book-quote{
     color: var(--orange);
-    text-align: center;
     line-height: 1.8em;
 }
 
@@ -1690,9 +1728,9 @@ table {
     background: var(--white);
     border-radius: 15px;
     box-sizing: border-box;
-    padding: 10px 10px;
+    margin-bottom: 30px;
+    padding: 20px 10px;
     box-sizing: border-box;
-
 }
 
 .gear-pix{
@@ -1721,13 +1759,14 @@ table {
 
 .gear-text-grid{
     display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 0px 13px;
+    grid-template-columns: 2fr 4fr;
+    gap: 8px 13px;
     box-sizing: border-box;
     padding: 10px 0px;
     margin: 0;
-    font-size: 1.1em;
-    align-items: center;
+    font-size: 1em;
+    align-items: top;
+
 }
 
 .gear-label{
@@ -1753,11 +1792,11 @@ table {
     width: calc(100%-30px);
 }
 
-.account-info-box{
+.arena-info-box{
     background: var(--white);
     border-radius: 15px;
     margin: 20px 0;
-    padding: 0 20px 1px;
+    padding: 20px 20px 1px;
     box-sizing: border-box;
     align-items: center;
     width: calc(100%-30px);
