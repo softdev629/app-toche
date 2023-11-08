@@ -5,14 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="icon" href="/favicon.png" />
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
 
     <title>Sign Up</title>
   </head>
@@ -27,7 +24,7 @@
       </div>
     </header>
 
-    <main class="">
+    <main>
       <!-- ! need to adjust type, id, name, now just text, define "country code" -->
       <section class="login-box">
         <form name="signup" id="signup-form">
@@ -75,9 +72,6 @@
             class="account-text contact-text"
           />
 
-          <!-- <label for="distance" class="account-label">Distance</label>
-            <input type="number" id="birthday" name="birthday" placeholder=" eg. 2002-06-27" required class="account-text contact-text"> -->
-
           <label for="sliderDistance" class="account-label">Distance</label
           ><br />
           <div class="sliderBox">
@@ -113,7 +107,7 @@
             placeholder="Mobile phone"
             required
             class="account-text contact-text"
-            pattern="\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$"
+            pattern="(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$"
           />
 
           <label for="email" class="account-label">Email:</label>
@@ -123,6 +117,7 @@
             name="email"
             placeholder="Input your email"
             required
+            autocomplete="email"
             class="account-text contact-text"
           />
 
@@ -143,6 +138,7 @@
             required
             minlength="8"
             class="account-text contact-text"
+            autocomplete="new-password"
           />
 
           <label for="passwordConfirm" class="account-label"
@@ -152,6 +148,7 @@
             type="password"
             id="passwordConfirm"
             name="passwordConfirm"
+            autocomplete="new-password"
             placeholder="And again your password"
             required
             minlength="8"
@@ -194,90 +191,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-      import {
-        getAuth,
-        createUserWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-      import {
-        getFirestore,
-        addDoc,
-        collection,
-      } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyC5IvwxXnlUZlKkU0y5GVnM8f5aDt7-bxA",
-        authDomain: "toche-f26b4.firebaseapp.com",
-        databaseURL:
-          "https://toche-f26b4-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "toche-f26b4",
-        storageBucket: "toche-f26b4.appspot.com",
-        messagingSenderId: "438822071945",
-        appId: "1:438822071945:web:d10373a8087e04eefd6058",
-        measurementId: "G-F8EEYVB960",
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
-
-      const onSubmit = () => {
-        event.preventDefault();
-        const name = document.getElementById("name").value;
-        const tshirtName = document.getElementById("tshirtName").value;
-        const nationality = document.getElementById("nationality").value;
-        const birthday = document.getElementById("birthday").value;
-        const sliderDistance = document.getElementById("sliderDistance").value;
-        const countryCode = document.getElementById("countryCode").value;
-        const telephone = document.getElementById("telephone").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const passwordConfirm = document.getElementById("passwordConfirm");
-        const termsAgree = document.getElementById("terms-agree").value;
-        if (password !== passwordConfirm.value) {
-          Toastify({
-            text: "Password doesn't match",
-            style: { background: "#e74c3c" },
-          }).showToast();
-          return;
-        }
-
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            addDoc(collection(db, "users"), {
-              name,
-              tshirtName,
-              nationality,
-              birthday,
-              sliderDistance,
-              countryCode,
-              telephone,
-              email,
-              termsAgree,
-            }).then(() => {
-              Toastify({
-                text: "Signed up successfully",
-                style: { background: "#2ecc71" },
-              }).showToast();
-            });
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            if (errorCode === "auth/email-already-in-use")
-              Toastify({
-                text: "Email already in use",
-                style: { background: "#e74c3c" },
-              }).showToast();
-            console.log(errorCode);
-          });
-      };
-      document
-        .getElementById("signup-form")
-        .addEventListener("submit", onSubmit);
-    </script>
+    <script type="module" src="/js/signup.js"></script>
 
     <script>
       // JavaScript to display the slider value dynamically
