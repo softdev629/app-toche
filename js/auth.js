@@ -5,14 +5,21 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
 import { firebaseConfig } from "../config.js";
-import { LOGIN_ROUTE, LOGOUT_ROUTE } from "./constant.js";
+import {
+  LOGIN_ROUTE,
+  LOGOUT_ROUTE,
+  UNAUTHENTICATED_ROUTE,
+} from "./constant.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 export const checkAuth = () => {
   onAuthStateChanged(auth, (user) => {
-    if (!user) location.href = LOGIN_ROUTE;
+    if (!user) {
+      localStorage.setItem("from", UNAUTHENTICATED_ROUTE);
+      location.href = LOGIN_ROUTE;
+    }
   });
 };
 
@@ -28,6 +35,11 @@ export const checkFrom = () => {
     case LOGOUT_ROUTE:
       Toastify({
         text: "Logged out successfully",
+        style: { background: "#e74c3c" },
+      }).showToast();
+    case UNAUTHENTICATED_ROUTE:
+      Toastify({
+        text: "Not logged in",
         style: { background: "#e74c3c" },
       }).showToast();
   }

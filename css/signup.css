@@ -1,0 +1,28 @@
+.terms-checkbox {
+  margin: 0 50px 30px;
+  line-height: 1.8em;
+}
+
+.sliderBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  background: var(--white);
+  border: 1px solid var(--lightgrey);
+  font-family: "Kodchasan-Regular";
+  border-radius: 15px;
+  margin: 5px 0px 20px;
+  padding: 15px 0 0;
+}
+
+.slideDist {
+  width: 60%;
+  /* padding: 20px 0 0; */
+  margin: 0 10px 20px;
+}
+
+.link-login {
+  display: flex;
+  justify-content: center;
+}

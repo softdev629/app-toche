@@ -1,0 +1,14 @@
+.link-signup {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.forgot-password {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 0.9em;
+  color: var(--blue);
+}
