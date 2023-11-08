@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -17,9 +18,6 @@
   <body>
     <header>
       <div class="header-back">
-        <a href="/account.html" class="back-arrow"
-          ><img src="/img/Back.svg" alt="" class="icon-arrow"
-        /></a>
         <h1>SIGN UP</h1>
       </div>
     </header>
@@ -163,10 +161,9 @@
               class="terms-agree-box"
               required
             />
-            <label for="terms-agree" class=""
-              >I agree to the
-              <a href="terms.html" class="">Terms of Service</a> and
-              <a href="privacy.html" class="">Privacy Policy</a></label
+            <label for="terms-agree"
+              >I agree to the <a href="terms.html">Terms of Service</a> and
+              <a href="privacy.html">Privacy Policy</a></label
             >
           </div>
 
@@ -179,6 +176,14 @@
               value="CONFIRM"
               class="button"
             /><br />
+          </div>
+
+          <div class="link-login">
+            <a
+              href="/auth/login.html"
+              onclick="localStorage.setItem('from', '/auth/signup.html')"
+              >Already have an account?</a
+            >
           </div>
         </form>
       </section>

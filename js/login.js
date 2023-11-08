@@ -5,6 +5,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
 import { firebaseConfig } from "../config.js";
+import { ACCOUNT_ROUTE, LOGIN_ROUTE } from "./constant.js";
+import { checkFrom } from "./auth.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -17,14 +19,8 @@ const loginHandler = (event) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
-      const user = userCredential.user;
-      console.log(userCredential);
-      Toastify({
-        text: "Log in successfully",
-        style: { background: "#2ecc71" },
-      }).showToast();
-      localStorage.setItem("logged_in", "true");
-      location.href = "/account.html";
+      localStorage.setItem("from", LOGIN_ROUTE);
+      location.href = ACCOUNT_ROUTE;
       // ...
     })
     .catch((error) => {
@@ -43,4 +39,9 @@ const loginHandler = (event) => {
     });
 };
 
-document.getElementById("login-form").addEventListener("submit", loginHandler);
+window.onload = () => {
+  checkFrom();
+  document
+    .getElementById("login-form")
+    .addEventListener("submit", loginHandler);
+};

@@ -1794,15 +1794,6 @@ table {
   margin: 20px 15px 0;
 }
 
-.forgot-password {
-  display: flex;
-  justify-content: center;
-  letter-spacing: 2px;
-  font-weight: 500;
-  font-size: 0.9em;
-  color: var(--blue);
-}
-
 /* account SING UP */
 
 .login-explainer {
@@ -1812,24 +1803,6 @@ table {
   /* line-height: 2em; */
 }
 
-.sliderBox {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  background: var(--white);
-  border: 1px solid var(--lightgrey);
-  font-family: "Kodchasan-Regular";
-  border-radius: 15px;
-  margin: 5px 0px 20px;
-  padding: 15px 0 0;
-}
-.slideDist {
-  width: 60%;
-  /* padding: 20px 0 0; */
-  margin: 0 10px 20px;
-}
-
 /* TERMS */
 .terms-box {
   margin: 0px 20px;
@@ -1837,11 +1810,6 @@ table {
 
 .terms-text {
   padding-top: 20px;
-  line-height: 1.8em;
-}
-
-.terms-checkbox {
-  margin: 0 50px 30px;
   line-height: 1.8em;
 }
 
@@ -1872,20 +1840,6 @@ table {
     max-width: 960px;
     margin: 0 auto;
   }
-
-  /* !  for desktop header is fixed 960 but can't center  */
-
-  /* .nav-bar {
-        width: 100%;
-        max-width: 960px;
-        margin: 0 auto;
-        justify-self: center;
-        align-self: center;
-    } */
-
-  /* main{
-        max-width: 700px;
-    } */
 }
 
 @media screen and (min-width: 960px) {
@@ -1895,18 +1849,10 @@ table {
     max-width: 1060px;
     margin: 0 auto;
   }
-
-  /* main{
-        max-width: 850px;
-    } */
 }
 
 @media screen and (min-width: 1200px) {
   body {
     font-size: 22px;
   }
-
-  /* main{
-        max-width: 1000px;
-    } */
 }
