@@ -4,8 +4,8 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
-import { checkAuth, checkFrom } from "./auth.js";
-import { firebaseConfig } from "../config.js";
+import { checkAuth, checkToast } from "./auth.js";
+import { firebaseConfig } from "./config.js";
 import { LOGIN_ROUTE, LOGOUT_ROUTE } from "./constant.js";
 
 const app = initializeApp(firebaseConfig);
@@ -22,8 +22,13 @@ function logoutHandler(event) {
 }
 
 window.onload = () => {
+  // Check auth
   checkAuth();
-  checkFrom();
+
+  // Check toast
+  checkToast();
+
+  // Connect events with handlers
   document
     .getElementById("link-logout")
     .addEventListener("click", logoutHandler);

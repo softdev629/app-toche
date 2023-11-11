@@ -1,226 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
 
     <title>Matches</title>
-</head>
+  </head>
 
-
-
-<body>
+  <body>
     <header>
-        <div class="header-content">
-            <h1>MATCHES</h1>
-            <button class="info-buts" id="openBtn">?</button>
-            <a href="new-match.html" ><img src="img/NewMatch.svg" alt="" class="new-game"></a>
-        </div>
-
+      <div class="header-content">
+        <h1>MATCHES</h1>
+        <button class="info-buts" id="openBtn">?</button>
+        <a href="new-match.html"
+          ><img src="img/NewMatch.svg" alt="" class="new-game"
+        /></a>
+      </div>
     </header>
 
-
     <main>
-        
-        <!-- POPUP **** NOT WORKING-->
-        <div id="popup1" class="popup">
-            <div class="popup-content">
-                <span class="close" onclick="closePopup()">&times;</span>
-                <p>P</p>
-                <p>Points</p>
-                <p>S</p>
-                <p>Songs</p>
-                <p>Max</p>
-                <p>Maximum Points per Song</p>
-                <p>E%</p>
-                <p>Efficiency</p>
-            </div>
+      <!-- POPUP **** NOT WORKING-->
+      <div id="popup1" class="popup">
+        <div class="popup-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <p>P</p>
+          <p>Points</p>
+          <p>S</p>
+          <p>Songs</p>
+          <p>Max</p>
+          <p>Maximum Points per Song</p>
+          <p>E%</p>
+          <p>Efficiency</p>
         </div>
+      </div>
 
-        <div class="matches-header">
-            <DIV class="match-header-r1">
-                <p>ARENA</p>
-                <p>DATE</p>
-                <p>CATEGORY</p>
-            </DIV>
-            <div class="match-header-r2">
-                <P class="match-player">PLAYER</P>
-                <p>S</p>
-                <p>P</p>
-                <p>MAX</p>
-                <p>E%</p>
-            </div>
-
+      <div class="matches-header">
+        <div class="match-header-r1">
+          <p>ARENA</p>
+          <p>DATE</p>
+          <p>CATEGORY</p>
         </div>
+        <div class="match-header-r2">
+          <p class="match-player">PLAYER</p>
+          <p>S</p>
+          <p>P</p>
+          <p>MAX</p>
+          <p>E%</p>
+        </div>
+      </div>
 
-        <table style="width: 100%" class="basic-table table-matches">
-            <tbody>
-                <tr>
-                    <td id="arena">Berlin HQ</td>
-                    <td id="date">2022.11.30</td>
-                    <td id="category">Arena</td>
+      <table style="width: 100%" class="basic-table table-matches">
+        <tbody>
+          <tr>
+            <td id="arena">Berlin HQ</td>
+            <td id="date">2022.11.30</td>
+            <td id="category">Arena</td>
 
-                    <td id="player1">Juan</td>
-                    <td id="p1Songs">13</td>
-                    <td id="p1Points">313</td>
-                    <td id="p1MaxPS">23</td>
-                    <td id="p1Efficiency">26%</td>
+            <td id="player1">Juan</td>
+            <td id="p1Songs">13</td>
+            <td id="p1Points">313</td>
+            <td id="p1MaxPS">23</td>
+            <td id="p1Efficiency">26%</td>
 
-                    <td id="player2">Puki</td>
-                    <td id="p2Songs">12</td>
-                    <td id="p2Points">303</td>
-                    <td id="p2MaxPS">21</td>
-                    <td id="p2Efficiency">24%</td>
-                </tr>
+            <td id="player2">Puki</td>
+            <td id="p2Songs">12</td>
+            <td id="p2Points">303</td>
+            <td id="p2MaxPS">21</td>
+            <td id="p2Efficiency">24%</td>
+          </tr>
 
-                <tr>
-                    <td id="arena">Berlin HQ</td>
-                    <td id="date">2022.11.30</td>
-                    <td id="category">Arena</td>
+          <tr>
+            <td id="arena">Berlin HQ</td>
+            <td id="date">2022.11.30</td>
+            <td id="category">Arena</td>
 
-                    <td id="player1">Juan</td>
-                    <td id="p1Songs">13</td>
-                    <td id="p1Points">313</td>
-                    <td id="p1MaxPS">23</td>
-                    <td id="p1Efficiency">26%</td>
+            <td id="player1">Juan</td>
+            <td id="p1Songs">13</td>
+            <td id="p1Points">313</td>
+            <td id="p1MaxPS">23</td>
+            <td id="p1Efficiency">26%</td>
 
-                    <td id="player2">Puki</td>
-                    <td id="p2Songs">12</td>
-                    <td id="p2Points">303</td>
-                    <td id="p2MaxPS">21</td>
-                    <td id="p2Efficiency">24%</td>
-                </tr>
-                <tr>
-                    <td id="arena">Berlin HQ</td>
-                    <td id="date">2022.11.30</td>
-                    <td id="category">Arena</td>
+            <td id="player2">Puki</td>
+            <td id="p2Songs">12</td>
+            <td id="p2Points">303</td>
+            <td id="p2MaxPS">21</td>
+            <td id="p2Efficiency">24%</td>
+          </tr>
+          <tr>
+            <td id="arena">Berlin HQ</td>
+            <td id="date">2022.11.30</td>
+            <td id="category">Arena</td>
 
-                    <td id="player1">Juan</td>
-                    <td id="p1Songs">13</td>
-                    <td id="p1Points">313</td>
-                    <td id="p1MaxPS">23</td>
-                    <td id="p1Efficiency">26%</td>
+            <td id="player1">Juan</td>
+            <td id="p1Songs">13</td>
+            <td id="p1Points">313</td>
+            <td id="p1MaxPS">23</td>
+            <td id="p1Efficiency">26%</td>
 
-                    <td id="player2">Puki</td>
-                    <td id="p2Songs">12</td>
-                    <td id="p2Points">303</td>
-                    <td id="p2MaxPS">21</td>
-                    <td id="p2Efficiency">24%</td>
-                </tr>
-                <tr>
-                    <td id="arena">Berlin HQ</td>
-                    <td id="date">2022.11.30</td>
-                    <td id="category">Arena</td>
+            <td id="player2">Puki</td>
+            <td id="p2Songs">12</td>
+            <td id="p2Points">303</td>
+            <td id="p2MaxPS">21</td>
+            <td id="p2Efficiency">24%</td>
+          </tr>
+          <tr>
+            <td id="arena">Berlin HQ</td>
+            <td id="date">2022.11.30</td>
+            <td id="category">Arena</td>
 
-                    <td id="player1">Juan</td>
-                    <td id="p1Songs">13</td>
-                    <td id="p1Points">313</td>
-                    <td id="p1MaxPS">23</td>
-                    <td id="p1Efficiency">26%</td>
+            <td id="player1">Juan</td>
+            <td id="p1Songs">13</td>
+            <td id="p1Points">313</td>
+            <td id="p1MaxPS">23</td>
+            <td id="p1Efficiency">26%</td>
 
-                    <td id="player2">Puki</td>
-                    <td id="p2Songs">12</td>
-                    <td id="p2Points">303</td>
-                    <td id="p2MaxPS">21</td>
-                    <td id="p2Efficiency">24%</td>
-                </tr>
-                <tr>
-                    <td id="arena">Berlin HQ</td>
-                    <td id="date">2022.11.30</td>
-                    <td id="category">Arena</td>
+            <td id="player2">Puki</td>
+            <td id="p2Songs">12</td>
+            <td id="p2Points">303</td>
+            <td id="p2MaxPS">21</td>
+            <td id="p2Efficiency">24%</td>
+          </tr>
+          <tr>
+            <td id="arena">Berlin HQ</td>
+            <td id="date">2022.11.30</td>
+            <td id="category">Arena</td>
 
-                    <td id="player1">Juan</td>
-                    <td id="p1Songs">13</td>
-                    <td id="p1Points">313</td>
-                    <td id="p1MaxPS">23</td>
-                    <td id="p1Efficiency">26%</td>
+            <td id="player1">Juan</td>
+            <td id="p1Songs">13</td>
+            <td id="p1Points">313</td>
+            <td id="p1MaxPS">23</td>
+            <td id="p1Efficiency">26%</td>
 
-                    <td id="player2">Puki</td>
-                    <td id="p2Songs">12</td>
-                    <td id="p2Points">303</td>
-                    <td id="p2MaxPS">21</td>
-                    <td id="p2Efficiency">24%</td>
-                </tr>
-                <tr>
-                    <td id="arena">Berlin HQ</td>
-                    <td id="date">2022.11.30</td>
-                    <td id="category">Arena</td>
+            <td id="player2">Puki</td>
+            <td id="p2Songs">12</td>
+            <td id="p2Points">303</td>
+            <td id="p2MaxPS">21</td>
+            <td id="p2Efficiency">24%</td>
+          </tr>
+          <tr>
+            <td id="arena">Berlin HQ</td>
+            <td id="date">2022.11.30</td>
+            <td id="category">Arena</td>
 
-                    <td id="player1">Juan</td>
-                    <td id="p1Songs">13</td>
-                    <td id="p1Points">313</td>
-                    <td id="p1MaxPS">23</td>
-                    <td id="p1Efficiency">26%</td>
+            <td id="player1">Juan</td>
+            <td id="p1Songs">13</td>
+            <td id="p1Points">313</td>
+            <td id="p1MaxPS">23</td>
+            <td id="p1Efficiency">26%</td>
 
-                    <td id="player2">Puki</td>
-                    <td id="p2Songs">12</td>
-                    <td id="p2Points">303</td>
-                    <td id="p2MaxPS">21</td>
-                    <td id="p2Efficiency">24%</td>
-                </tr>
-                <tr>
-                    <td id="arena">Berlin HQ</td>
-                    <td id="date">2022.11.30</td>
-                    <td id="category">Arena</td>
+            <td id="player2">Puki</td>
+            <td id="p2Songs">12</td>
+            <td id="p2Points">303</td>
+            <td id="p2MaxPS">21</td>
+            <td id="p2Efficiency">24%</td>
+          </tr>
+          <tr>
+            <td id="arena">Berlin HQ</td>
+            <td id="date">2022.11.30</td>
+            <td id="category">Arena</td>
 
-                    <td id="player1">Juan</td>
-                    <td id="p1Songs">13</td>
-                    <td id="p1Points">313</td>
-                    <td id="p1MaxPS">23</td>
-                    <td id="p1Efficiency">26%</td>
+            <td id="player1">Juan</td>
+            <td id="p1Songs">13</td>
+            <td id="p1Points">313</td>
+            <td id="p1MaxPS">23</td>
+            <td id="p1Efficiency">26%</td>
 
-                    <td id="player2">Puki</td>
-                    <td id="p2Songs">12</td>
-                    <td id="p2Points">303</td>
-                    <td id="p2MaxPS">21</td>
-                    <td id="p2Efficiency">24%</td>
-                </tr>
+            <td id="player2">Puki</td>
+            <td id="p2Songs">12</td>
+            <td id="p2Points">303</td>
+            <td id="p2MaxPS">21</td>
+            <td id="p2Efficiency">24%</td>
+          </tr>
+        </tbody>
+      </table>
 
-            </tbody>
-        </table>
-
-        <div class="spacer150"></div>
-
+      <div class="spacer150"></div>
     </main>
 
+    <!-- Navigation  -->
 
-<!-- Navigation  -->
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-link">
+        <img src="img/StatsOff.svg" alt="new match" />
+        <span class="nav-text">My Stats</span>
+      </a>
 
-     <nav class="nav-bar">
-        <a href="index.html" class="nav-link">
-            <img src="img/StatsOff.svg" alt="new match">
-            <span class="nav-text">My Stats</span>
-        </a>
+      <a href="matches.html" class="nav-link current">
+        <img src="img/Matches.svg" alt="" />
+        <span class="nav-text">Matches</span>
+      </a>
 
-        <a href="matches.html" class="nav-link current">
-            <img src="img/Matches.svg" alt="">
-            <span class="nav-text">Matches</span>
-        </a>
+      <a href="ranking.html" class="nav-link">
+        <img src="img/RankingOFF.svg" alt="" />
+        <span class="nav-text">Ranking</span>
+      </a>
 
-        <a href="ranking.html" class="nav-link">
-            <img src="img/RankingOFF.svg" alt="">
-            <span class="nav-text">Ranking</span>
-        </a>
+      <a href="cups.html" class="nav-link">
+        <img src="img/CupsOFF.svg" alt="" />
+        <span class="nav-text">Cups</span>
+      </a>
 
-        <a href="cups.html" class="nav-link">
-            <img src="img/CupsOFF.svg" alt="">
-            <span class="nav-text">Cups</span>
-        </a>
-
-        <a href="account.html" class="nav-link">
-            <img src="img/AccountOff.svg" alt="">
-            <span class="nav-text">Account</span>
-        </a>
+      <a href="account.html" class="nav-link">
+        <img src="img/AccountOff.svg" alt="" />
+        <span class="nav-text">Account</span>
+      </a>
     </nav>
 
-<!-- script -->
+    <!-- script -->
     <script type="module" src="index.js"></script>
     <!-- for INFO legend -->
     <script type="module" src="main.js"></script>
-
-</body>
+  </body>
 </html>
