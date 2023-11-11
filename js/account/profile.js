@@ -41,6 +41,12 @@ window.onload = () => {
 
       // Show user information on view
       document.getElementById("tshirt-name").innerHTML = doc.tshirtName;
+      document.getElementById("name").innerHTML = doc.name;
+      document.getElementById("mobile").innerHTML = doc.telephone;
+      document.getElementById("email").innerHTML = doc.email;
+
+      document.getElementById("birthdate").innerHTML = doc.birthday;
+      document.getElementById("distance").innerHTML = doc.distance;
 
       // Loading finished
       document.body.removeChild(loadingDiv);

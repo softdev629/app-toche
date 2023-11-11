@@ -24,7 +24,7 @@ const signupHandler = (event) => {
   const tshirtName = document.getElementById("tshirtName").value;
   const nationality = document.getElementById("nationality").value;
   const birthday = document.getElementById("birthday").value;
-  const sliderDistance = document.getElementById("sliderDistance").value;
+  const distance = document.getElementById("distance").value;
   const countryCode = document.getElementById("countryCode").value;
   const telephone = document.getElementById("telephone").value;
   const email = document.getElementById("email").value;
@@ -50,7 +50,7 @@ const signupHandler = (event) => {
         tshirtName,
         nationality,
         birthday,
-        sliderDistance,
+        distance,
         countryCode,
         telephone,
         email,
