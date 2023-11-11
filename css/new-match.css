@@ -1,0 +1,134 @@
+.new-match-info {
+  width: 100%;
+  margin: 50px 0 0;
+  display: inline-block;
+}
+
+.nmArena {
+  height: 30px;
+}
+
+.player-names {
+  top: 50px;
+  position: fixed;
+  z-index: 99;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 2px;
+  padding: 15px 20px 10px;
+  background: var(--pearl);
+  border-bottom: 1px solid var(--orange);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.score-input-name {
+  background: var(--orange);
+  color: var(--white);
+  border: 0;
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Kodchasan;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.match-type {
+  position: relative;
+  display: grid;
+  row-gap: 15px;
+  margin: 0px 20px 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.match-type label {
+  text-align: right;
+  padding-right: 5px;
+}
+
+.score-input {
+  margin: 30px 20px 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr;
+  column-gap: 10px;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-calculations {
+  margin: 30px 20px 30px;
+  box-sizing: border-box;
+  /* TODO chenge to NONE, */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.score-songs {
+  background: var(--orange);
+  border: 0;
+  border-radius: 0;
+  height: 50px;
+  color: var(--white);
+  font-family: Kodchasan;
+  font-size: 1.5em;
+}
+
+.points-label {
+  color: var(--orange);
+  font-size: 0.9em;
+  grid-column: span 2;
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+.score-points {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  background: var(--white);
+  color: var(--ash);
+  border-radius: 0;
+  border: 1px solid var(--orange);
+  font-size: 1.2em;
+  padding: 6px;
+}
+
+.input-points {
+  border-radius: 0;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid var(--orange);
+  font-family: "Kodchasan-Regular";
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.input-points-grey {
+  border-radius: 0;
+  background: var(--lightgrey);
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid var(--orange);
+  font-family: "Kodchasan-Regular";
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.song-number {
+  font-size: 1em;
+  color: var(--grey);
+  text-align: center;
+}

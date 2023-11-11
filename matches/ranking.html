@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
+
+    <title>Ranking</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <select
+          name="chooseRanking"
+          id="chooseRanking"
+          class="dropdown dropRank"
+          required
+        >
+          <option value="Berlin HQ">Berlin HQ</option>
+          <option value="Bogota">Bogota</option>
+          <option value="Berlin HQ">World Ranking</option>
+        </select>
+        <button class="info-buts" id="openBtn">?</button>
+        <a href="new-match.html" class="newMatch"
+          ><img src="img/NewMatch.svg" alt="" class="new-game"
+        /></a>
+      </div>
+    </header>
+
+    <main class="">
+      <!-- Popup Legend -->
+      <div id="popup2" class="popup">
+        <div class="popup-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <p>D</p>
+          <p>Distance</p>
+          <p>M</p>
+          <p>Matches Played</p>
+          <p>W</p>
+          <p>Matches Won</p>
+          <p>E%</p>
+          <p>Efficiency</p>
+          <p>TP</p>
+          <p>Turbo Power</p>
+          <p>LP</p>
+          <p style="padding-bottom: 15px">League Points</p>
+
+          <p></p>
+          <p style="color: black; padding-bottom: 5px">
+            Ranking is according to:
+          </p>
+          <p>1-</p>
+          <p>League Points (earned in cups you play)</p>
+          <p>2-</p>
+          <p>Turbo Power</p>
+          <p>3-</p>
+          <p>Efficiency</p>
+        </div>
+      </div>
+
+      <!-- Table Header -->
+      <div class="ranking-header">
+        <p>#</p>
+        <p class="player-name">Player</p>
+        <p>D</p>
+        <p>M</p>
+        <p>W</p>
+        <p>E%</p>
+        <p>TP</p>
+        <p>LP</p>
+      </div>
+
+      <!-- Table data -->
+      <table style="width: 100%" class="basic-table ranking-table">
+        <tbody>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+          <tr class="ranking-row">
+            <td id="rank-position">1</td>
+            <td id="player" class="player-name table-highlight">Juan</td>
+            <td id="distance" class="distance">8</td>
+            <td id="matches-played">25</td>
+            <td id="matches-won">20</td>
+            <td id="efficiency">30%</td>
+            <td id="turbo-power">60%</td>
+            <td id="league-points" class="table-highlight">1200</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="spacer150"></div>
+      <div class="spacer150"></div>
+      <div class="spacer150"></div>
+    </main>
+
+    <!-- Navigation  -->
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-link">
+        <img src="img/StatsOff.svg" alt="new match" />
+        <span class="nav-text">My Stats</span>
+      </a>
+
+      <a href="matches.html" class="nav-link">
+        <img src="img/MatchesOFF.svg" alt="" />
+        <span class="nav-text">Matches</span>
+      </a>
+
+      <a href="ranking.html" class="nav-link current">
+        <img src="img/Ranking.svg" alt="" />
+        <span class="nav-text">Ranking</span>
+      </a>
+
+      <a href="cups.html" class="nav-link">
+        <img src="img/CupsOFF.svg" alt="" />
+        <span class="nav-text">Cups</span>
+      </a>
+
+      <a href="account.html" class="nav-link">
+        <img src="img/AccountOff.svg" alt="" />
+        <span class="nav-text">Account</span>
+      </a>
+    </nav>
+
+    <!--  script -->
+    <script type="module" src="index.js"></script>
+
+    <!-- for INFO legend -->
+    <!-- <script src="index.js"></script> -->
+  </body>
+</html>
