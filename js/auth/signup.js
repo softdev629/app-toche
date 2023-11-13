@@ -47,14 +47,14 @@ const signupHandler = (event) => {
       // Add additional params to firebase store
       addDoc(collection(db, "users"), {
         name,
-        tshirtName,
+        tshirt_name: tshirtName,
         nationality,
         birthday,
         distance,
-        countryCode,
+        country_code: countryCode,
         telephone,
         email,
-        termsAgree,
+        terms_check: termsAgree,
       }).then(() => {
         Toastify({
           text: "Signed up successfully",

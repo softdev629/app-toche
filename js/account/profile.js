@@ -32,12 +32,10 @@ window.onload = () => {
       localStorage.setItem("toast", "Not logged in");
       location.href = LOGIN_ROUTE;
     } else {
-      console.log(user.email);
       // Get user information from firebase store with email
       const q = query(users, where("email", "==", user.email));
       const querySnapshot = await getDocs(q);
       const doc = querySnapshot.docs[0].data();
-      console.log(doc);
 
       // Show user information on view
       document.getElementById("tshirt-name").innerHTML = doc.tshirtName;
