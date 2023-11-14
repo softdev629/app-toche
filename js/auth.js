@@ -22,10 +22,13 @@ export const checkAuth = () => {
 export const checkToast = () => {
   const toastText = localStorage.getItem("toast");
   if (toastText && toastText !== "") {
+    let background = "#2ecc71";
+    if (toastText === "Not logged in") background = "#e74c3c";
     Toastify({
       text: toastText,
-      style: { background: "#2ecc71" },
+      style: { background },
     }).showToast();
+
     localStorage.setItem("toast", "");
   }
 };
