@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <title>Arenas</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-back">
+        <a href="/account/arenas.html" class="back-arrow"
+          ><img src="/img/Back.svg" alt="" class="icon-arrow"
+        /></a>
+        <h1>New Arena</h1>
+      </div>
+    </header>
+    <main>
+      <section class="login-box">
+        <form id="new-arena-form">
+          <label for="name" class="account-label">Arena Name:</label>
+          <input
+            id="arena-name"
+            name="arena-name"
+            placeholder="Input arena name"
+            required
+            class="account-text contact-text"
+          />
+
+          <label for="city" class="account-label">City</label>
+          <input
+            id="city"
+            name="city"
+            placeholder="The name of city where arena is located"
+            required
+            class="account-text contact-text"
+          />
+
+          <label for="country" class="account-label">Country</label>
+          <input
+            id="country"
+            name="country"
+            placeholder="The name of country where arena is located"
+            required
+            class="account-text contact-text"
+          />
+
+          <label for="address" class="account-label">Address</label>
+          <textarea
+            id="address"
+            name="address"
+            placeholder="The address where arena is located"
+            required
+            rows="3"
+            style="text-align: center"
+            class="account-text contact-text"
+          ></textarea>
+
+          <input type="hidden" id="manager-email" />
+          <input type="hidden" id="manager-name" />
+
+          <div class="button-div">
+            <button type="submit" class="button">CONFIRM</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- script -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="/js/matchnes/new-arena.js" type="module"></script>
+  </body>
+</html>

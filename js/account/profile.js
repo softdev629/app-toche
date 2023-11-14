@@ -16,7 +16,7 @@ import { LOGIN_ROUTE } from "../constant.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const users = collection(db, "users");
+const usersRef = collection(db, "users");
 const auth = getAuth(app);
 
 window.onload = () => {
@@ -32,15 +32,19 @@ window.onload = () => {
       localStorage.setItem("toast", "Not logged in");
       location.href = LOGIN_ROUTE;
     } else {
-      console.log(user.email);
       // Get user information from firebase store with email
-      const q = query(users, where("email", "==", user.email));
+      const q = query(usersRef, where("email", "==", user.email));
       const querySnapshot = await getDocs(q);
       const doc = querySnapshot.docs[0].data();
-      console.log(doc);
 
       // Show user information on view
       document.getElementById("tshirt-name").innerHTML = doc.tshirtName;
+      document.getElementById("name").innerHTML = doc.name;
+      document.getElementById("mobile").innerHTML = doc.telephone;
+      document.getElementById("email").innerHTML = doc.email;
+
+      document.getElementById("birthdate").innerHTML = doc.birthday;
+      document.getElementById("distance").innerHTML = doc.distance;
 
       // Loading finished
       document.body.removeChild(loadingDiv);

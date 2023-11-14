@@ -24,7 +24,7 @@ const signupHandler = (event) => {
   const tshirtName = document.getElementById("tshirtName").value;
   const nationality = document.getElementById("nationality").value;
   const birthday = document.getElementById("birthday").value;
-  const sliderDistance = document.getElementById("sliderDistance").value;
+  const distance = document.getElementById("distance").value;
   const countryCode = document.getElementById("countryCode").value;
   const telephone = document.getElementById("telephone").value;
   const email = document.getElementById("email").value;
@@ -47,14 +47,15 @@ const signupHandler = (event) => {
       // Add additional params to firebase store
       addDoc(collection(db, "users"), {
         name,
-        tshirtName,
+        tshirt_name: tshirtName,
         nationality,
         birthday,
-        sliderDistance,
-        countryCode,
+        distance,
+        country_code: countryCode,
         telephone,
         email,
-        termsAgree,
+        terms_check: termsAgree,
+        arenas: [],
       }).then(() => {
         Toastify({
           text: "Signed up successfully",

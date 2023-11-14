@@ -70,20 +70,19 @@
             class="account-text contact-text"
           />
 
-          <label for="sliderDistance" class="account-label">Distance</label
-          ><br />
+          <label for="distance" class="account-label">Distance</label><br />
           <div class="sliderBox">
             <input
               type="range"
-              id="sliderDistance"
-              name="sliderDistance"
+              id="distance"
+              name="distance"
               min="3"
               max="8"
               value="3"
               class="slideDist"
             />
             <!-- Display the selected value -->
-            <output for="sliderDistance">3</output>
+            <output for="distance">3</output>
           </div>
 
           <label for="name" class="account-label">Country Code:</label>
@@ -196,8 +195,8 @@
 
     <script>
       // JavaScript to display the slider value dynamically
-      const slider = document.getElementById("sliderDistance");
-      const output = document.querySelector("output[for='sliderDistance']");
+      const slider = document.getElementById("distance");
+      const output = document.querySelector("output[for='distance']");
       output.textContent = slider.value; // Display the default value
 
       slider.addEventListener("input", function () {
