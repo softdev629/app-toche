@@ -18,8 +18,8 @@ import { LOGIN_ROUTE } from "../constant.js";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const users = collection(db, "users");
-const arenas = collection(db, "arenas");
+const usersRef = collection(db, "users");
+const arenasRef = collection(db, "arenas");
 
 const newArenaHandler = (event) => {
   event.preventDefault();
@@ -33,7 +33,7 @@ const newArenaHandler = (event) => {
   const managerName = document.getElementById("manager-name").value;
 
   //   Add to firebase store
-  addDoc(arenas, {
+  addDoc(arenasRef, {
     name: arenaName,
     city,
     country,
@@ -66,7 +66,7 @@ window.onload = () => {
       document.getElementById("manager-email").value = user.email;
 
       // Get user information from firebase store with email
-      const q = query(users, where("email", "==", user.email));
+      const q = query(usersRef, where("email", "==", user.email));
       const querySnapshot = await getDocs(q);
       const doc = querySnapshot.docs[0].data();
 

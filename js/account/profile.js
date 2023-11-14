@@ -16,7 +16,7 @@ import { LOGIN_ROUTE } from "../constant.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const users = collection(db, "users");
+const usersRef = collection(db, "users");
 const auth = getAuth(app);
 
 window.onload = () => {
@@ -33,7 +33,7 @@ window.onload = () => {
       location.href = LOGIN_ROUTE;
     } else {
       // Get user information from firebase store with email
-      const q = query(users, where("email", "==", user.email));
+      const q = query(usersRef, where("email", "==", user.email));
       const querySnapshot = await getDocs(q);
       const doc = querySnapshot.docs[0].data();
 

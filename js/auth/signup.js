@@ -55,6 +55,7 @@ const signupHandler = (event) => {
         telephone,
         email,
         terms_check: termsAgree,
+        arenas: [],
       }).then(() => {
         Toastify({
           text: "Signed up successfully",
