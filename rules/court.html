@@ -5,19 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
-
     <title>Toche Rule Book - Court & Implements</title>
 </head>
-
-
 
 <body>
 
     <header>
         <div class="header-back">
-            <a href="acc-rules.html" class="back-arrow" ><img src="img/Back.svg" alt="" class="icon-arrow"></a>
+            <a href="/account/rules.html" class="back-arrow" ><img src="/img/Back.svg" alt="" class="icon-arrow"></a>
             <h1>Court & Implements</h1>
         </div>
 
@@ -25,12 +20,12 @@
 
  
     <main class="">
-        <img src="pix/balls-knit-diamond.webp" alt="" class="book-chap-overview">
+        <img src="/pix/balls-knit-diamond.webp" alt="" class="book-chap-overview">
 
         <div  class="book-chap-intro-box">
             <section class="book-chap-intro" id="top1">Toche does not require sophisticated or expensive equipment. It is easily adapted to any environment—including your mother’s living room.</section>
             
-            <div class="book-section-menu">ALL YOU NEED IS LOVE, AND...<img src="img/Toche-Icon-O-T.svg" alt="" class="book-icon-ov"></div> 
+            <div class="book-section-menu">ALL YOU NEED IS LOVE, AND...<img src="/img/Toche-Icon-O-T.svg" alt="" class="book-icon-ov"></div> 
             <ul class="section-links">
                 <li><a href="#rb-balls" class="section-anchors">Balls</a></li>
                 <li><a href="#rb-court" class="section-anchors">Court</a></li>
@@ -41,8 +36,7 @@
 
         </div>
 
-
-<!-- SECTIONS  -->
+        <!-- SECTIONS  -->
         <div class="content-box scroll-container" >
 
             <section class="scroll-item" id="rb-balls">
@@ -63,7 +57,7 @@
                 <h2 class="book-section">COURT</h2>
 
                 <p>The main areas of the court are: platform, runway, target, barrier and cheering area.</p><br>
-                <img src="pix/court-grass.webp" alt="" class="book-chap-overview"><br><br><br>
+                <img src="/pix/court-grass.webp" alt="" class="book-chap-overview"><br><br><br>
                 <p>This little poem explains it better:</p><br>
                 <div class="book-quote">
                     <P>Throw your balls from the platform,<br>
@@ -134,10 +128,20 @@
         <div class="spacer150"></div>
 
     </main>
-
-
-
-<!-- background & script -->
-    <script src="index.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+  
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+  
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: "smooth",
+            });
+          });
+        });
+      </script>
 </body>
 </html>

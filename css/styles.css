@@ -1120,7 +1120,7 @@ table {
 }
 
 .section-anchors {
-  padding: 50px 0px;
+  padding: 0px 10px;
   color: var(--pearl);
   color: var(--blue);
 }
