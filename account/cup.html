@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
 
     <title>Cup Generator</title>
   </head>
@@ -22,10 +27,13 @@
     <main class="">
       <section class="terms-box">
         <form id="cup-form">
-          <p id="arenaName" class="input-title cgArena">Arena: Berlin HQ</p>
+          <p class="input-title cgArena">
+            Arena: <span id="arena-name"></span>
+          </p>
+          <input type="hidden" id="arena-id" />
 
           <select id="category" class="dropdown" required>
-            <option disabled hidden selected>Category</option>
+            <option disabled hidden selected value="">Category</option>
             <option value="Arena">Arena</option>
             <option value="City">City</option>
             <option value="National">National</option>
@@ -33,10 +41,10 @@
           ><br /><br />
 
           <select id="trophyType" class="dropdown" required>
-            <option disabled hidden selected>Trophy Type</option>
-            <option value="Medal">None</option>
-            <option value="Trophy">Medal</option>
-            <option value="Trophy & Gift">Trophy</option>
+            <option disabled hidden selected value="">Trophy Type</option>
+            <option value="None">None</option>
+            <option value="Medal">Medal</option>
+            <option value="Trophy">Trophy</option>
             <option value="Custom">Custom</option></select
           ><br /><br />
 
@@ -93,6 +101,10 @@
     </main>
 
     <!-- background & script -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script type="module" src="/js/account/cup.js"></script>
   </body>
 </html>

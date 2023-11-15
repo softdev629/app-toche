@@ -30,6 +30,7 @@ window.onload = () => {
     if (!user) {
       // No user, log out
       localStorage.setItem("toast", "Not logged in");
+      localStorage.setItem("toast_type", "error");
       location.href = LOGIN_ROUTE;
     } else {
       // Get user information from firebase store with email

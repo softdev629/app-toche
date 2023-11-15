@@ -14,6 +14,7 @@ import {
 
 import { firebaseConfig } from "../config.js";
 import { LOGIN_ROUTE } from "../constant.js";
+import { checkToast } from "../auth.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -50,6 +51,8 @@ const newArenaHandler = (event) => {
 };
 
 window.onload = () => {
+  checkToast();
+
   // User information loading start
   const loadingDiv = document.createElement("div");
   loadingDiv.classList.add("loading");
@@ -60,6 +63,7 @@ window.onload = () => {
     if (!user) {
       // No user, log out
       localStorage.setItem("toast", "Not logged in");
+      localStorage.setItem("toast_type", "error");
       location.href = LOGIN_ROUTE;
     } else {
       // Set user email as manager email in hidden field

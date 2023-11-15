@@ -14,6 +14,7 @@ export const checkAuth = () => {
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       localStorage.setItem("toast", "Not logged in");
+      localStorage.setItem("toast_type", "error");
       location.href = LOGIN_ROUTE;
     }
   });
@@ -21,14 +22,16 @@ export const checkAuth = () => {
 
 export const checkToast = () => {
   const toastText = localStorage.getItem("toast");
+  const toastType = localStorage.getItem("toast_type");
   if (toastText && toastText !== "") {
     let background = "#2ecc71";
-    if (toastText === "Not logged in") background = "#e74c3c";
+    if (toastType === "error") background = "#e74c3c";
     Toastify({
       text: toastText,
       style: { background },
     }).showToast();
 
     localStorage.setItem("toast", "");
+    localStorage.setItem("toast_type", "");
   }
 };

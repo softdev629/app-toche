@@ -68,6 +68,7 @@ window.onload = () => {
     if (!user) {
       // No user, log out
       localStorage.setItem("toast", "Not logged in");
+      localStorage.setItem("toast_type", "error");
       location.href = LOGIN_ROUTE;
     } else {
       // get user doc from firestore
@@ -86,7 +87,6 @@ window.onload = () => {
           const parent = document.getElementsByClassName("header-back")[0];
           const lastChild = parent.lastElementChild;
           parent.removeChild(lastChild);
-          return;
         }
 
         // create html elements to show data
