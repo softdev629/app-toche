@@ -28,6 +28,7 @@ const loginHandler = (event) => {
     .then(() => {
       // Login success
       localStorage.setItem("toast", "Login Successfully");
+      localStorage.setItem("toast_type", "success");
       location.href = ACCOUNT_ROUTE;
 
       // Login request processing finished

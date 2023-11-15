@@ -15,7 +15,6 @@ function logoutHandler(event) {
   event.preventDefault();
   signOut(auth)
     .then(() => {
-      localStorage.setItem("from", LOGOUT_ROUTE);
       location.href = LOGIN_ROUTE;
     })
     .catch((err) => console.log(err));

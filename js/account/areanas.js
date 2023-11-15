@@ -68,6 +68,7 @@ window.onload = () => {
     if (!user) {
       // No user, log out
       localStorage.setItem("toast", "Not logged in");
+      localStorage.setItem("toast_type", "error");
       location.href = LOGIN_ROUTE;
     } else {
       // get user doc from firestore
@@ -77,8 +78,16 @@ window.onload = () => {
 
       // Get all arenas data from firestore
       const querySnapshotArena = await getDocs(arenasRef);
+
       querySnapshotArena.forEach(async (item) => {
         const data = item.data();
+
+        // remove new arena button if user is already owner of one arena
+        if (data.manager_email === user.email) {
+          const parent = document.getElementsByClassName("header-back")[0];
+          const lastChild = parent.lastElementChild;
+          parent.removeChild(lastChild);
+        }
 
         // create html elements to show data
         const arenaInfoBox = document.createElement("div");
