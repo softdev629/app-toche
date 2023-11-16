@@ -5,7 +5,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
 import { firebaseConfig } from "./config.js";
-import { LOGIN_ROUTE, UNAUTHENTICATED_ROUTE } from "./constant.js";
+import { LOGIN_ROUTE } from "./constant.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

@@ -42,11 +42,9 @@ const newArenaHandler = (event) => {
     manager_email: managerEmail,
     manager_name: managerName,
   }).then(() => {
-    Toastify({
-      text: "Arena created successfully",
-      style: { background: "#2ecc71" },
-    }).showToast();
-    document.getElementById("new-arena-form").reset();
+    localStorage.setItem("toast", "Arena created successfully");
+    localStorage.setItem("toast_type", "success");
+    localStorage.href = "/account/arenas.html";
   });
 };
 

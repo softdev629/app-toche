@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
 
-    <!-- ! add title as variable -->
-    <title>Special Cup</title>
+    <title>Seasonal Cup</title>
   </head>
 
   <body>
@@ -16,8 +15,7 @@
         <a href="/cups.html" class="back-arrow"
           ><img src="/img/Back.svg" alt="" class="icon-arrow"
         /></a>
-        <!-- ! add title as variable -->
-        <h1>Crazy Fun Cup</h1>
+        <h1>Autumn Cup 2023</h1>
       </div>
     </header>
 
@@ -25,9 +23,9 @@
       <div class="tabs-container">
         <div class="tabs-bkg">
           <div class="button-container">
-            <button onclick="showPanel(0)">STANDINGS</button>
-            <button onclick="showPanel(1)">MATCHES</button>
-            <button onclick="showPanel(2)">INFO</button>
+            <button id="btn-standings">STANDINGS</button>
+            <button id="btn-matches">MATCHES</button>
+            <button id="btn-info">INFO</button>
           </div>
         </div>
 
@@ -39,9 +37,9 @@
             <p>D</p>
             <p>M</p>
             <p>W</p>
+            <p>S</p>
             <p>E%</p>
             <p>TP</p>
-            <p>S</p>
           </div>
 
           <table style="width: 100%" class="basic-table ranking-table">
@@ -52,9 +50,9 @@
                 <td id="distance" class="distance">8</td>
                 <td id="matches-played">25</td>
                 <td id="matches-won">20</td>
-                <td id="efficiency">55%</td>
-                <td id="turbo-power">50%</td>
-                <td id="total-songs" class="table-highlight">240</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
               </tr>
 
               <tr class="cup-row">
@@ -63,9 +61,9 @@
                 <td id="distance" class="distance">8</td>
                 <td id="matches-played">25</td>
                 <td id="matches-won">20</td>
-                <td id="efficiency">55%</td>
-                <td id="turbo-power">50%</td>
-                <td id="total-songs" class="table-highlight">240</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
               </tr>
               <tr class="cup-row">
                 <td id="rank-position">1</td>
@@ -73,9 +71,9 @@
                 <td id="distance" class="distance">8</td>
                 <td id="matches-played">25</td>
                 <td id="matches-won">20</td>
-                <td id="efficiency">55%</td>
-                <td id="turbo-power">50%</td>
-                <td id="total-songs" class="table-highlight">240</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
               </tr>
               <tr class="cup-row">
                 <td id="rank-position">1</td>
@@ -83,9 +81,9 @@
                 <td id="distance" class="distance">8</td>
                 <td id="matches-played">25</td>
                 <td id="matches-won">20</td>
-                <td id="efficiency">55%</td>
-                <td id="turbo-power">50%</td>
-                <td id="total-songs" class="table-highlight">240</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
               </tr>
               <tr class="cup-row">
                 <td id="rank-position">1</td>
@@ -93,9 +91,9 @@
                 <td id="distance" class="distance">8</td>
                 <td id="matches-played">25</td>
                 <td id="matches-won">20</td>
-                <td id="efficiency">55%</td>
-                <td id="turbo-power">50%</td>
-                <td id="total-songs" class="table-highlight">240</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
               </tr>
               <tr class="cup-row">
                 <td id="rank-position">1</td>
@@ -103,25 +101,35 @@
                 <td id="distance" class="distance">8</td>
                 <td id="matches-played">25</td>
                 <td id="matches-won">20</td>
-                <td id="efficiency">55%</td>
-                <td id="turbo-power">50%</td>
-                <td id="total-songs" class="table-highlight">240</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
               </tr>
               <tr class="cup-row">
                 <td id="rank-position">1</td>
                 <td id="player" class="player-name table-highlight">Juan</td>
-                <td id="distance" class="distance">7</td>
+                <td id="distance" class="distance">8</td>
                 <td id="matches-played">25</td>
                 <td id="matches-won">20</td>
-                <td id="efficiency">55%</td>
-                <td id="turbo-power">50%</td>
-                <td id="total-songs" class="table-highlight">240</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
+              </tr>
+              <tr class="cup-row">
+                <td id="rank-position">1</td>
+                <td id="player" class="player-name table-highlight">Juan</td>
+                <td id="distance" class="distance">8</td>
+                <td id="matches-played">25</td>
+                <td id="matches-won">20</td>
+                <td id="total-songs">540</td>
+                <td id="efficiency">30%</td>
+                <td id="turbo-power" class="table-highlight">55%</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Cup Matches  TAB-->
+        <!-- Cup MAtches TAB-->
         <div class="tab-panel">
           <div class="matches-header" style="top: 100px">
             <div class="match-header-r1">
@@ -260,23 +268,6 @@
                 <td id="p2MaxPS">21</td>
                 <td id="p2Efficiency">24%</td>
               </tr>
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -289,9 +280,9 @@
               <p class="cup-info-label">Arena</p>
               <p>Berlin HQ</p>
               <p class="cup-info-label">Category</p>
-              <p>Arena</p>
+              <p>Arean</p>
               <p class="cup-info-label">League Points</p>
-              <p id="leaguePoints">1,000</p>
+              <p id="leaguePoints">100</p>
             </div>
 
             <img
@@ -302,12 +293,12 @@
 
             <div class="cup-info-box">
               <p class="cup-info-label">Prizes</p>
-              <p>Trophies <br />Cash prize</p>
+              <p>Trophy</p>
               <p class="cup-info-label">Winning Parameters</p>
               <p>
-                Songs <br />
                 Turbo Power <br />
-                Efficiency
+                Efficiency <br />
+                Songs
               </p>
             </div>
 
@@ -321,23 +312,23 @@
               <p class="cup-info-label">Players</p>
               <p>8</p>
               <p class="cup-info-label">Rounds</p>
-              <p>1</p>
+              <p>None</p>
               <p class="cup-info-label">Total Matches</p>
               <p>56</p>
-              <p class="cup-info-label">Matches/Player</p>
-              <p>7</p>
               <p class="cup-info-label">Timeframe</p>
               <p class="cup-info-padding">
-                2022.06.15 <br />
-                Ongoing
+                2023.10.01 <br />
+                2023.12.31
               </p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="spacer150"></div>
     </main>
 
     <!-- script -->
+    <script src="/js/matches/cup-stats.js"></script>
   </body>
 </html>
