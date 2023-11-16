@@ -39,7 +39,7 @@ window.onload = () => {
       const doc = querySnapshot.docs[0].data();
 
       // Show user information on view
-      document.getElementById("tshirt-name").innerHTML = doc.tshirtName;
+      document.getElementById("tshirt-name").innerHTML = doc.tshirt_name;
       document.getElementById("name").innerHTML = doc.name;
       document.getElementById("mobile").innerHTML = doc.telephone;
       document.getElementById("email").innerHTML = doc.email;

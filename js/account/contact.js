@@ -6,10 +6,10 @@ const sendEmail = (event) => {
 
   Email.send({
     Host: "smtp.gmail.com",
-    Username: "sender@email_address.com",
-    Password: "Enter your password",
+    Username: "tochecontact@gmail.com",
+    Password: "ddvunfjvmhpkjqxn",
     To: "play@toche.com",
-    From: "sender@email_address.com",
+    From: "tochecontact@gmail.com",
     Subject: `Contact from Toche User: ${name}`,
     Body: message,
   }).then(function () {

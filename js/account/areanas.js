@@ -16,6 +16,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 import { firebaseConfig } from "../config.js";
+import { checkToast } from "../script.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -59,6 +60,8 @@ const addStat = (node, num, icon, label) => {
 };
 
 window.onload = () => {
+  checkToast();
+
   // User information loading start
   const loadingDiv = document.createElement("div");
   loadingDiv.classList.add("loading");

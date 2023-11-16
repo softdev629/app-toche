@@ -14,7 +14,7 @@ import {
 
 import { firebaseConfig } from "../config.js";
 import { LOGIN_ROUTE } from "../constant.js";
-import { checkToast } from "../auth.js";
+import { checkToast } from "../script.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -42,11 +42,9 @@ const newArenaHandler = (event) => {
     manager_email: managerEmail,
     manager_name: managerName,
   }).then(() => {
-    Toastify({
-      text: "Arena created successfully",
-      style: { background: "#2ecc71" },
-    }).showToast();
-    document.getElementById("new-arena-form").reset();
+    localStorage.setItem("toast", "Arena created successfully");
+    localStorage.setItem("toast_type", "success");
+    localStorage.href = "/account/arenas.html";
   });
 };
 
