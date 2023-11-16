@@ -6,7 +6,7 @@ import {
 
 import { firebaseConfig } from "../config.js";
 import { ACCOUNT_ROUTE } from "../constant.js";
-import { checkToast } from "../auth.js";
+import { checkToast } from "../script.js";
 
 // Basic firebase process
 const app = initializeApp(firebaseConfig);

@@ -37,45 +37,6 @@ function generateFixtures(event) {
   const rounds = parseInt(document.getElementById("rounds").value);
   const players = parseInt(document.getElementById("players").value);
 
-  // get player t-shirt names
-  const playerNames = [];
-  for (let i = 0; i < players; i++) {
-    const playerName = prompt(`Enter T-Shirt Name for Player ${i + 1}:`);
-    playerNames.push(playerName || `Player ${i + 1}`);
-  }
-
-  // print all information
-  const fixtureOutput = document.getElementById("fixtureOutput");
-  const tournamentInfo = document.getElementById("tournamentInfo");
-  fixtureOutput.innerHTML = "";
-  tournamentInfo.innerHTML = `
-      <h2>Tournament Information</h2>
-      <p><strong>Category:</strong> ${category}</p>
-      <p><strong>Trophy:</strong> ${trophyType}</p>
-      <p><strong>Prizes:</strong> ${prizes}</p>
-      <p><strong>Arena Name:</strong> ${arenaName}</p>
-      <p><strong>Starting Date:</strong> ${startingDate}</p>
-      <p><strong>Cup Name:</strong> ${cupName}</p>
-      <p><strong>Number of Matches:</strong> ${calculateMatches(players)}</p>
-    `;
-
-  // plan all matches for all players in cup
-  const matchdays = generateMatchdays(players, playerNames);
-
-  fixtureOutput.innerHTML += "<h2>Fixtures</h2>";
-
-  // print match plan
-  for (let matchday = 0; matchday < matchdays.length; matchday++) {
-    fixtureOutput.innerHTML += `<h3>Matchday ${matchday + 1}</h3>`;
-    for (let match = 0; match < matchdays[`${matchday}`].length; match++) {
-      fixtureOutput.innerHTML += `<p>Match ${match + 1}: ${
-        playerNames[matchdays[`${matchday}`][match].left]
-      } vs ${playerNames[matchdays[`${matchday}`][match].right]}</p>`;
-    }
-  }
-
-  console.log(matchdays);
-
   // save cup info and match plan in firestore(cup collection)
   addDoc(cupsRef, {
     category,
@@ -87,8 +48,6 @@ function generateFixtures(event) {
     rounds,
     cup_name: cupName,
     players,
-    player_names: playerNames,
-    match: matchdays,
   }).then(() =>
     Toastify({
       text: "Cup generated successfully",
@@ -164,7 +123,6 @@ window.onload = () => {
       localStorage.setItem("toast_type", "error");
       location.href = LOGIN_ROUTE;
     } else {
-      console.log(user.email);
       // Get user information from firebase store with email
       const q = query(arenasRef, where("manager_email", "==", user.email));
       const querySnapshot = await getDocs(q);

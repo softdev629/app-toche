@@ -4,7 +4,7 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
-import { checkAuth, checkToast } from "./auth.js";
+import { checkAuth, checkToast } from "./script.js";
 import { firebaseConfig } from "./config.js";
 import { LOGIN_ROUTE, LOGOUT_ROUTE } from "./constant.js";
 

@@ -14,7 +14,7 @@ import {
 
 import { firebaseConfig } from "../config.js";
 import { LOGIN_ROUTE } from "../constant.js";
-import { checkToast } from "../auth.js";
+import { checkToast } from "../script.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
