@@ -19,6 +19,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
 import { firebaseConfig } from "../config.js";
+import { NEW_ARENA } from "../constant.js";
 
 // firebase connection basic actions
 const app = initializeApp(firebaseConfig);
@@ -102,7 +103,6 @@ function generateFixtures(event) {
   const startingDate = document.getElementById("startingDate").value;
   const cupName = document.getElementById("cupName").value;
   const rounds = parseInt(document.getElementById("rounds").value);
-  const players = parseInt(document.getElementById("players").value);
 
   // save cup info and match plan in firestore(cup collection)
   addDoc(cupsRef, {
@@ -114,8 +114,10 @@ function generateFixtures(event) {
     starting_date: startingDate,
     rounds,
     cup_name: cupName,
-    players,
     banner: file.name,
+    status: "upcoming",
+    players: [],
+    type: "special",
   }).then(() => {
     Toastify({
       text: "Cup generated successfully",
@@ -189,27 +191,27 @@ const onFileChange = (event) => {
 };
 
 window.onload = () => {
-  // User information loading start
+  // loading data from firebase
   const loadingDiv = document.createElement("div");
   loadingDiv.classList.add("loading");
   document.body.appendChild(loadingDiv);
 
-  // Check user authentication info from local cache
+  // check user authentication info from local cache
   onAuthStateChanged(auth, async (user) => {
     if (!user) {
-      // No user, log out
+      // no user, log out
       localStorage.setItem("toast", "Not logged in");
       localStorage.setItem("toast_type", "error");
       location.href = LOGIN_ROUTE;
     } else {
-      // Get user information from firebase store with email
+      // get arena information from firebase store with email
       const q = query(arenasRef, where("manager_email", "==", user.email));
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.docs.length === 0) {
         localStorage.setItem("toast", "No arena, create arena first.");
         localStorage.setItem("toast_type", "error");
-        location.href = "/matches/new-arena.html";
+        location.href = NEW_ARENA;
         return;
       }
       document.getElementById("arena-id").value = querySnapshot.docs[0].id;
