@@ -15,7 +15,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 import { firebaseConfig } from "./config.js";
-import { CUP_STATS, LOGIN_ROUTE } from "./constant.js";
+import { ARENAS, CUP_STATS, LOGIN_ROUTE } from "./constant.js";
 
 // initialize firebase connection
 const app = initializeApp(firebaseConfig);
@@ -42,6 +42,13 @@ window.onload = () => {
       const userQ = query(usersRef, where("email", "==", user.email));
       const userQuerySnapshot = await getDocs(userQ);
       const userDoc = userQuerySnapshot.docs[0].data();
+
+      if (userDoc.arenas.length === 0) {
+        localStorage.setItem("toast", "Join arenas first");
+        localStorage.setItem("toast_type", "error");
+        location.href = ARENAS;
+        return;
+      }
 
       // filter joined arena cups
       const cupsQ = query(cupsRef, where("arena_id", "in", userDoc.arenas));

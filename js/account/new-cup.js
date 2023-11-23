@@ -128,59 +128,6 @@ function generateFixtures(event) {
   });
 }
 
-// number of total matches
-export function calculateMatches(players) {
-  return (players * (players - 1)) / 2;
-}
-
-export function generateMatchdays(players) {
-  const matchdays = {};
-
-  switch (players % 2) {
-    // if number of players is even
-    case 0:
-      // center loop is center axios
-      for (let center = 0; center < players - 1; ++center) {
-        matchdays[`${center}`] = [];
-        // first make a plan about without one player (players - 1 : odd)
-        // half loop is delta from axios
-        for (let half = 1; half <= (players - 2) / 2; ++half) {
-          // get two elements which is same distance away from center axios(delta half away)
-          matchdays[`${center}`].push({
-            left:
-              center + half >= players - 1
-                ? center + half - players + 1
-                : center + half,
-            right:
-              center - half < 0 ? center - half + players - 1 : center - half,
-          });
-        }
-        // add player which isn't included in the match with last player
-        matchdays[`${center}`].push({ left: center, right: players - 1 });
-      }
-      break;
-    // if number of players is odd
-    case 1:
-      // center loop is center axios
-      for (let center = 0; center < players; ++center) {
-        matchdays[`${center}`] = [];
-        // half loop is delta from axios
-        for (let half = 1; half <= (players - 1) / 2; ++half)
-          // get two elements which is same distance away from center axios(delta half away)
-          matchdays[`${center}`].push({
-            left:
-              center + half >= players
-                ? center + half - players
-                : center + half,
-            right: center - half < 0 ? center - half + players : center - half,
-          });
-      }
-      break;
-  }
-
-  return matchdays;
-}
-
 const onFileChange = (event) => {
   if (event.target.files.length > 0) {
     const file = event.target.files[0];
