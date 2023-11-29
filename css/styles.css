@@ -466,6 +466,12 @@ table {
   height: 90px;
 }
 
+.table-matches tr .pending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .table-matches td:nth-child(1) {
   width: 45%;
   padding-left: 15px;
@@ -511,6 +517,19 @@ table {
 .table-matches td:nth-child(13) {
   width: 14%;
   text-align: center;
+}
+
+.table-matches td span {
+  color: var(--orange);
+  font-size: 16px;
+}
+
+.pending td:nth-child(2) {
+  width: 50%;
+}
+
+.pending button {
+  margin-top: 15px;
 }
 
 /* RANKING */

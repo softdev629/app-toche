@@ -43,7 +43,7 @@
           </div>
 
           <table style="width: 100%" class="basic-table ranking-table">
-            <tbody>
+            <tbody id="standing-table">
               <tr class="cup-row">
                 <td id="rank-position">1</td>
                 <td id="player" class="player-name table-highlight">Juan</td>
@@ -147,128 +147,7 @@
           </div>
 
           <table style="width: 100%" class="basic-table table-matches">
-            <tbody>
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
-
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
-              <tr>
-                <td id="arena">Berlin HQ</td>
-                <td id="date">2022.11.30</td>
-                <td id="category">Arena</td>
-
-                <td id="player1">Juan</td>
-                <td id="p1Songs">13</td>
-                <td id="p1Points">313</td>
-                <td id="p1MaxPS">23</td>
-                <td id="p1Efficiency">26%</td>
-
-                <td id="player2">Puki</td>
-                <td id="p2Songs">12</td>
-                <td id="p2Points">303</td>
-                <td id="p2MaxPS">21</td>
-                <td id="p2Efficiency">24%</td>
-              </tr>
-            </tbody>
+            <tbody id="match-table"></tbody>
           </table>
         </div>
 
@@ -329,6 +208,6 @@
     </main>
 
     <!-- script -->
-    <script src="/js/matches/cup-stats.js"></script>
+    <script src="/js/matches/cup-stats.js" type="module"></script>
   </body>
 </html>
