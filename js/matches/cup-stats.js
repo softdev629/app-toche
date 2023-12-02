@@ -1,8 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-import {
-  getAuth,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import {
   getFirestore,
   collection,
@@ -16,7 +13,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 import { firebaseConfig } from "../config.js";
-import { ARENAS, CUP_STATS, LOGIN_ROUTE } from "../constant.js";
+import { ARENAS, CUP_STATS, LOGIN_ROUTE, NEW_MATCH } from "../constant.js";
 
 // initialize firebase connection
 const app = initializeApp(firebaseConfig);
@@ -61,11 +58,6 @@ window.onload = async () => {
           <span>${cupData.tshirt_names[match.right]}</span>
         </td>
         <td><button class="button" id="btn-${day}-${idx}">Start</button></td>`;
-          document
-            .getElementById(`btn-${day}-${idx}`)
-            .addEventListener("click", () => {
-              const matchInfo = {};
-            });
           break;
         case "finished":
           trItem.innerHTML = `<td>${cupData.arena_name}</td>
@@ -86,11 +78,34 @@ window.onload = async () => {
           break;
       }
       matchTable.append(trItem);
+      if (match.status === "pending") {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = (today.getMonth() + 1).toString().padStart(2, "0");
+        const date = today.getDate().toString().padStart(2, "0");
+        const formattedDate = year + "/" + month + "/" + date;
+
+        document
+          .getElementById(`btn-${day}-${idx}`)
+          .addEventListener("click", () => {
+            const matchInfo = {
+              arena_id: cupData.arena_id,
+              arena_name: cupData.arena_name,
+              player1_id: cupData.players[match.left],
+              player1_name: cupData.tshirt_names[match.left],
+              player2_id: cupData.players[match.right],
+              player2_name: cupData.tshirt_names[match.right],
+              cup_id: cupDoc.id,
+              cup_name: cupData.cup_name,
+              date: formattedDate,
+            };
+            localStorage.setItem("match_info", JSON.stringify(matchInfo));
+            location.href = NEW_MATCH;
+          });
+      }
       ++idx;
     }
   }
-
-  console.log(cupData);
 
   document
     .getElementById("btn-standings")

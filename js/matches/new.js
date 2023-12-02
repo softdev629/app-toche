@@ -1,4 +1,23 @@
-// ! CONST LIST
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  where,
+  query,
+  getDocs,
+  getDoc,
+  doc,
+  addDoc,
+  updateDoc,
+} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+import { firebaseConfig } from "../config.js";
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const arenasRef = collection(db, "arenas");
+const cupsRef = collection(db, "cups");
+const matchesRef = collection(db, "matches");
 
 // PLAYERS
 const newMatchForm = document.querySelector(".new-match-info");
@@ -7,132 +26,25 @@ const newMatchForm = document.querySelector(".new-match-info");
 const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
 
-// TODO add new player name
-// ** IF INPUTTING NAME
-// const namePattern = /^[a-zA-Z]{3,12}$/;
-// const feedback = document.querySelector('.feedback');
-// const feedback2 = document.querySelector('.feedback2');
-
 // MATCH SPECS
 const chooseArena = document.getElementById("chooseArena");
 const chooseCup = document.getElementById("chooseCup");
 const chooseDate = document.getElementById("chooseDate");
 
-// POINTS INPUT
-const p1s1Points = document.getElementById("p1s1Points");
-const p1s2Points = document.getElementById("p1s2Points");
-const p1s3Points = document.getElementById("p1s3Points");
-const p1s4Points = document.getElementById("p1s4Points");
-const p1s5Points = document.getElementById("p1s5Points");
-
-const p1s6Points = document.getElementById("p1s6Points");
-const p1s7Points = document.getElementById("p1s7Points");
-const p1s8Points = document.getElementById("p1s8Points");
-const p1s9Points = document.getElementById("p1s9Points");
-const p1s10Points = document.getElementById("p1s10Points");
-const p1s11Points = document.getElementById("p1s11Points");
-const p1s12Points = document.getElementById("p1s12Points");
-const p1s13Points = document.getElementById("p1s13Points");
-const p1s14Points = document.getElementById("p1s14Points");
-const p1s15Points = document.getElementById("p1s15Points");
-const p1s16Points = document.getElementById("p1s16Points");
-const p1s17Points = document.getElementById("p1s17Points");
-const p1s18Points = document.getElementById("p1s18Points");
-const p1s19Points = document.getElementById("p1s19Points");
-const p1s20Points = document.getElementById("p1s20Points");
-const p1s21Points = document.getElementById("p1s21Points");
-const p1s22Points = document.getElementById("p1s22Points");
-const p1s23Points = document.getElementById("p1s23Points");
-const p1s24Points = document.getElementById("p1s24Points");
-const p1s25Points = document.getElementById("p1s25Points");
-
-const p2s1Points = document.getElementById("p2s1Points");
-const p2s2Points = document.getElementById("p2s2Points");
-const p2s3Points = document.getElementById("p2s3Points");
-const p2s4Points = document.getElementById("p2s4Points");
-const p2s5Points = document.getElementById("p2s5Points");
-
-const p2s6Points = document.getElementById("p2s6Points");
-const p2s7Points = document.getElementById("p2s7Points");
-const p2s8Points = document.getElementById("p2s8Points");
-const p2s9Points = document.getElementById("p2s9Points");
-const p2s10Points = document.getElementById("p2s10Points");
-const p2s11Points = document.getElementById("p2s11Points");
-const p2s12Points = document.getElementById("p2s12Points");
-const p2s13Points = document.getElementById("p2s13Points");
-const p2s14Points = document.getElementById("p2s14Points");
-const p2s15Points = document.getElementById("p2s15Points");
-const p2s16Points = document.getElementById("p2s16Points");
-const p2s17Points = document.getElementById("p2s17Points");
-const p2s18Points = document.getElementById("p2s18Points");
-const p2s19Points = document.getElementById("p2s19Points");
-const p2s20Points = document.getElementById("p2s20Points");
-const p2s21Points = document.getElementById("p2s21Points");
-const p2s22Points = document.getElementById("p2s22Points");
-const p2s23Points = document.getElementById("p2s23Points");
-const p2s24Points = document.getElementById("p2s24Points");
-const p2s25Points = document.getElementById("p2s25Points");
-
 // ARRAY
-const p1Array = [
-  p1s1Points,
-  p1s2Points,
-  p1s3Points,
-  p1s4Points,
-  p1s5Points,
-  p1s6Points,
-  p1s7Points,
-  p1s8Points,
-  p1s9Points,
-  p1s10Points,
-  p1s11Points,
-  p1s12Points,
-  p1s13Points,
-  p1s14Points,
-  p1s15Points,
-  p1s16Points,
-  p1s17Points,
-  p1s18Points,
-  p1s19Points,
-  p1s20Points,
-  p1s21Points,
-  p1s22Points,
-  p1s23Points,
-  p1s24Points,
-  p1s25Points,
-];
-const p2Array = [
-  p2s1Points,
-  p2s2Points,
-  p2s3Points,
-  p2s4Points,
-  p2s5Points,
-  p2s6Points,
-  p2s7Points,
-  p2s8Points,
-  p2s9Points,
-  p2s10Points,
-  p2s11Points,
-  p2s12Points,
-  p2s13Points,
-  p2s14Points,
-  p2s15Points,
-  p2s16Points,
-  p2s17Points,
-  p2s18Points,
-  p2s19Points,
-  p2s20Points,
-  p2s21Points,
-  p2s22Points,
-  p2s23Points,
-  p2s24Points,
-  p2s25Points,
-];
+const p1Array = [];
+const p2Array = [];
 
-// * for testing
-// const p1Array = [p1s1Points, p1s2Points, p1s3Points, p1s4Points, p1s5Points];
-// console.log(p1Array);
-// const p2Array = [p2s1Points, p2s2Points, p2s3Points, p2s4Points, p2s5Points];
+for (let i = 1; i <= 25; ++i) {
+  p1Array.push(document.getElementById(`p1s${i}Points`));
+  document.getElementById(`p1s${i}Points`).value = Math.floor(
+    Math.random() * 11 + 15
+  );
+  p2Array.push(document.getElementById(`p2s${i}Points`));
+  document.getElementById(`p2s${i}Points`).value = Math.floor(
+    Math.random() * 11 + 15
+  );
+}
 
 // SCORE CALCULATIONS
 const scoreCalculations = document.querySelector(".score-calculations");
@@ -147,7 +59,9 @@ let p1Songer = 0;
 let p2Songer = 0;
 
 function songCounter() {
-  for (i = 0; i < p1Array.length; i++) {
+  p1Songer = p2Songer = 0;
+
+  for (let i = 0; i < p1Array.length; i++) {
     if (parseInt(p1Array[i].value) > parseInt(p2Array[i].value)) {
       p1Songer += 1;
     } else {
@@ -169,6 +83,8 @@ let p2Pointer = 0;
 
 // TODO make sure there are no equal point numbers
 function totalPoints() {
+  p1Pointer = p2Pointer;
+
   for (let i = 0; i < p1Array.length; i++) {
     if (parseInt(p1Array[i].value)) {
       p1Pointer += parseInt(p1Array[i].value);
@@ -198,8 +114,6 @@ function averagePoints() {
   p1Avg = p1Pointer / 25;
   p2Avg = p2Pointer / 25;
 
-  document.getElementById("p1Average").value = p1Avg;
-  document.getElementById("p2Average").value = p2Avg;
   p1Average.innerText = p1Avg.toFixed(0);
   p2Average.innerText = p2Avg.toFixed(0);
 }
@@ -228,13 +142,11 @@ const p1Efficiency = document.getElementById("p1Efficiency");
 const p2Efficiency = document.getElementById("p2Efficiency");
 
 function efficiency() {
-  let p1Efficient = (p1Pointer * 100) / 1200;
-  let p2Efficient = (p2Pointer * 100) / 1200;
+  p1Efficient = (p1Pointer * 100) / 1200;
+  p2Efficient = (p2Pointer * 100) / 1200;
 
-  document.getElementById("p1Efficiency").value = p1Efficient;
-  document.getElementById("p2Efficiency").value = p2Efficient;
-  p1Efficiency.textContent = p1Efficient.toFixed(0) + "%";
-  p2Efficiency.textContent = p2Efficient.toFixed(0) + "%";
+  p1Efficiency.innerHTML = p1Efficient.toFixed(0) + "%";
+  p2Efficiency.innerHTML = p2Efficient.toFixed(0) + "%";
 }
 
 //  TURBO POWER
@@ -244,13 +156,11 @@ const p1Turbo = document.getElementById("p1Turbo");
 const p2Turbo = document.getElementById("p2Turbo");
 
 function turbo() {
-  let p1TurboPower = (p1Songer * 100) / 25;
-  let p2TurboPower = (p2Songer * 100) / 25;
+  p1TurboPower = (p1Songer * 100) / 25;
+  p2TurboPower = (p2Songer * 100) / 25;
 
-  document.getElementById("p1Turbo").value = p1TurboPower;
-  document.getElementById("p2Turbo").value = p2TurboPower;
-  p1Turbo.textContent = p1TurboPower.toFixed(0) + "%";
-  p2Turbo.textContent = p2TurboPower.toFixed(0) + "%";
+  p1Turbo.innerHTML = p1TurboPower.toFixed(0) + "%";
+  p2Turbo.innerHTML = p2TurboPower.toFixed(0) + "%";
 }
 
 //  MAXIMUM P/S
@@ -260,131 +170,312 @@ const p1MaxPS = document.getElementById("p1MaxPS");
 const p2MaxPS = document.getElementById("p2MaxPS");
 
 function maxPoints() {
-  let p1MaxPts = Math.max(
-    parseInt(p1Array[0].value),
-    parseInt(p1Array[1].value),
-    parseInt(p1Array[2].value),
-    parseInt(p1Array[3].value),
-    parseInt(p1Array[4].value),
-    parseInt(p1Array[5].value),
-    parseInt(p1Array[6].value),
-    parseInt(p1Array[7].value),
-    parseInt(p1Array[8].value),
-    parseInt(p1Array[9].value),
-    parseInt(p1Array[10].value),
-    parseInt(p1Array[11].value),
-    parseInt(p1Array[12].value),
-    parseInt(p1Array[13].value),
-    parseInt(p1Array[14].value),
-    parseInt(p1Array[15].value),
-    parseInt(p1Array[16].value),
-    parseInt(p1Array[17].value),
-    parseInt(p1Array[18].value),
-    parseInt(p1Array[19].value),
-    parseInt(p1Array[20].value),
-    parseInt(p1Array[21].value),
-    parseInt(p1Array[22].value),
-    parseInt(p1Array[23].value),
-    parseInt(p1Array[24].value)
-  );
+  p1MaxPts = Math.max(...p1Array.map((item) => parseInt(item.value)));
 
-  let p2MaxPts = Math.max(
-    parseInt(p2Array[0].value),
-    parseInt(p2Array[1].value),
-    parseInt(p2Array[2].value),
-    parseInt(p2Array[3].value),
-    parseInt(p2Array[4].value),
-    parseInt(p2Array[5].value),
-    parseInt(p2Array[6].value),
-    parseInt(p2Array[7].value),
-    parseInt(p2Array[8].value),
-    parseInt(p2Array[9].value),
-    parseInt(p2Array[10].value),
-    parseInt(p2Array[11].value),
-    parseInt(p2Array[12].value),
-    parseInt(p2Array[13].value),
-    parseInt(p2Array[14].value),
-    parseInt(p2Array[15].value),
-    parseInt(p2Array[16].value),
-    parseInt(p2Array[17].value),
-    parseInt(p2Array[18].value),
-    parseInt(p2Array[19].value),
-    parseInt(p2Array[20].value),
-    parseInt(p2Array[21].value),
-    parseInt(p2Array[22].value),
-    parseInt(p2Array[23].value),
-    parseInt(p2Array[24].value)
-  );
+  p2MaxPts = Math.max(...p2Array.map((item) => parseInt(item.value)));
 
-  console.log("array max", p1MaxPts, "and", p2MaxPts);
-
-  // let p1MaxPts = Math.max(...p1Array);
-  // let p2MaxPts = Math.max(...p2Array);
-  // console.log('array max', p1MaxPts, p2MaxPts);
-
-  document.getElementById("p1MaxPS").value = p1MaxPts;
-  document.getElementById("p2MaxPS").value = p2MaxPts;
   p1MaxPS.innerText = p1MaxPts;
   p2MaxPS.innerText = p2MaxPts;
 }
 
-// ! EVENT LISTENER
-newMatchForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+window.onload = async () => {
+  // loading data from firebase
+  const loadingDiv = document.createElement("div");
+  loadingDiv.classList.add("loading");
+  document.body.appendChild(loadingDiv);
 
-  // ** IF INPUTTING NAME:
-  // if(namePattern.test(player1)) {
-  //     feedback.textContent = 'OK';
-  // } else {
-  //     feedback.textContent = 'Invalid name';
-  // }
-  // if(namePattern.test(player2)) {
-  //     feedback2.textContent = 'OK';
-  // } else {
-  //     feedback2.textContent = 'Invalid name';
-  // }
+  // get match info data from local storage
+  const matchInfoString = localStorage.getItem("match_info");
+  const matchInfo = JSON.parse(matchInfoString);
 
-  console.log(
-    newMatchForm.player1.value,
-    newMatchForm.player2.value,
-    newMatchForm.chooseArena.value,
-    newMatchForm.chooseCup.value,
-    newMatchForm.chooseDate.value
-  );
+  // cup select change event(update player list)
+  chooseCup.addEventListener("change", async (event) => {
+    // get cup data from firebase
+    const cupDocRef = doc(db, "cups", event.target.value);
+    const cupDocSnap = await getDoc(cupDocRef);
+    const cupData = cupDocSnap.data();
+    localStorage.setItem("cup_data", JSON.stringify(cupData));
 
-  // SONGS WON
-  songCounter();
-  console.log("Songs Counter:", p1Songer, p2Songer);
+    // update player1 select list
+    const defaultPlayer1OptionElement = document.createElement("option");
+    defaultPlayer1OptionElement.disabled = true;
+    defaultPlayer1OptionElement.hidden = true;
+    defaultPlayer1OptionElement.selected = true;
+    defaultPlayer1OptionElement.innerHTML = "Player 1";
 
-  //  TOTAL POINTS
-  totalPoints();
-  console.log("Total Points: ", p1Pointer, p2Pointer);
+    player1.replaceChildren();
+    player1.appendChild(defaultPlayer1OptionElement);
 
-  // MATCH WINNER
-  // * Not included in UX, just passed to DB
-  winner();
-  console.log("Match Winner: ", p1Winner, p2Winner);
+    for (let i = 0; i < cupData.players.length; ++i) {
+      const playerOptionElement = document.createElement("option");
+      playerOptionElement.value = cupData.players[i];
+      playerOptionElement.innerHTML = cupData.tshirt_names[i];
+      player1.appendChild(playerOptionElement);
+      if (matchInfo.player1_id === cupData.players[i])
+        player1.value = matchInfo.player1_id;
+    }
 
-  //  AVG P/S
-  averagePoints();
-  console.log("Average Points/Song: ", p1Avg, p2Avg);
+    // update player2 select list
+    const defaultPlayer2OptionElement = document.createElement("option");
+    defaultPlayer2OptionElement.disabled = true;
+    defaultPlayer2OptionElement.hidden = true;
+    defaultPlayer2OptionElement.selected = true;
+    defaultPlayer2OptionElement.innerHTML = "Player 2";
 
-  //  EFFICIENCY
-  efficiency();
-  console.log("Efficiency: ", p1Efficient, "%", p2Efficient, "%");
+    player2.replaceChildren();
+    player2.appendChild(defaultPlayer2OptionElement);
 
-  //  TURBO POWER
-  turbo();
-  console.log("Turbo Power: ", p1TurboPower, "%", p2TurboPower, "%");
+    for (let i = 0; i < cupData.players.length; ++i) {
+      const playerOptionElement = document.createElement("option");
+      playerOptionElement.value = cupData.players[i];
+      playerOptionElement.innerHTML = cupData.tshirt_names[i];
+      player2.appendChild(playerOptionElement);
+      if (matchInfo.player2_id === cupData.players[i])
+        player2.value = matchInfo.player2_id;
+    }
+  });
 
-  //  MAXIMUM P/S
-  maxPoints();
-  console.log("Maximum Points/Song : ", p1MaxPts, p2MaxPts);
+  // arena change event(update cup list)
+  chooseArena.addEventListener("change", async (event) => {
+    // arena select default option
+    const defaultCupOptionElement = document.createElement("option");
+    defaultCupOptionElement.disabled = true;
+    defaultCupOptionElement.hidden = true;
+    defaultCupOptionElement.selected = true;
+    defaultCupOptionElement.innerHTML = "Select Cup";
 
-  // TODO figure out the hide and show
-  // Making the SCORE CALCULATIONS visible
-  // scoreCalculations.classList.add()
-  scoreCalculations.style.display = "grid";
+    chooseCup.replaceChildren();
+    chooseCup.appendChild(defaultCupOptionElement);
 
-  // TODO also hide the SEND button
-});
+    const arenaDocRef = doc(db, "arenas", event.target.value);
+    const arenaDocSnap = await getDoc(arenaDocRef);
+    const arenaData = arenaDocSnap.data();
+    localStorage.setItem("arena_data", JSON.stringify(arenaData));
+
+    // get cup lists from firebase
+    const cupQ = query(cupsRef, where("arena_id", "==", event.target.value));
+    const cupQuerySnapshot = await getDocs(cupQ);
+
+    cupQuerySnapshot.forEach((doc) => {
+      const cupData = doc.data();
+      const optionElement = document.createElement("option");
+      optionElement.value = doc.id;
+      optionElement.innerHTML = cupData.cup_name;
+      chooseCup.append(optionElement);
+      if (doc.id === matchInfo.cup_id) {
+        chooseCup.value = doc.id;
+        chooseCup.dispatchEvent(new Event("change"));
+      }
+    });
+  });
+
+  // initialize arena list
+  const arenaQuerySnapshot = await getDocs(arenasRef);
+  arenaQuerySnapshot.forEach((doc) => {
+    const arenaData = doc.data();
+    const optionElement = document.createElement("option");
+    optionElement.value = doc.id;
+    optionElement.innerHTML = arenaData.name;
+    chooseArena.append(optionElement);
+    if (doc.id === matchInfo.arena_id) {
+      chooseArena.value = doc.id;
+      chooseArena.dispatchEvent(new Event("change"));
+    }
+  });
+
+  chooseDate.value = new Date().toISOString().substring(0, 10);
+
+  // ! EVENT LISTENER
+  newMatchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // SONGS WON
+    songCounter();
+
+    //  TOTAL POINTS
+    totalPoints();
+
+    // MATCH WINNER
+    // * Not included in UX, just passed to DB
+    winner();
+
+    //  AVG P/S
+    averagePoints();
+
+    //  EFFICIENCY
+    efficiency();
+
+    //  TURBO POWER
+    turbo();
+
+    //  MAXIMUM P/S
+    maxPoints();
+
+    // TODO figure out the hide and show
+    // Making the SCORE CALCULATIONS visible
+    // scoreCalculations.classList.add()
+    scoreCalculations.style.display = "grid";
+
+    // TODO also hide the SEND button
+  });
+
+  document.getElementById("btn-send").addEventListener("click", async () => {
+    console.log("Songs Counter:", p1Songer, p2Songer);
+    console.log("Total Points: ", p1Pointer, p2Pointer);
+    console.log("Match Winner: ", p1Winner, p2Winner);
+    console.log("Average Points/Song: ", p1Avg, p2Avg);
+    console.log("Efficiency: ", p1Efficient, "%", p2Efficient, "%");
+    console.log("Turbo Power: ", p1TurboPower, "%", p2TurboPower, "%");
+    console.log("Maximum Points/Song : ", p1MaxPts, p2MaxPts);
+
+    const cupData = JSON.parse(localStorage.getItem("cup_data"));
+    const arenaData = JSON.parse(localStorage.getItem("arena_data"));
+
+    const p1_score = [],
+      p2_score = [];
+    for (let i = 1; i <= 25; ++i) {
+      p1_score.push(p1Array[i - 1].value);
+      p2_score.push(p2Array[i - 1].value);
+    }
+    console.log(p1_score, p2_score);
+
+    const matchData = {
+      arena_id: chooseArena.value,
+      arena_name: chooseArena.options[chooseArena.selectedIndex].innerHTML,
+      p1_id: player1.value,
+      p1_name: player1.options[player1.selectedIndex].innerHTML,
+      p2_id: player2.value,
+      p2_name: player2.options[player2.selectedIndex].innerHTML,
+      cup_id: chooseCup.value,
+      cup_name: chooseCup.options[chooseCup.selectedIndex].innerHTML,
+      date: chooseDate.value,
+      category: cupData.category,
+      p1_score,
+      p2_score,
+      s1: p1Songer,
+      s2: p2Songer,
+      pt1: p1Pointer,
+      pt2: p2Pointer,
+      w1: p1Winner,
+      w2: p2Winner,
+      av1: p1Avg,
+      av2: p2Avg,
+      e1: p1Efficient,
+      e2: p2Efficient,
+      tp1: p1TurboPower,
+      tp2: p2TurboPower,
+      max1: p1MaxPts,
+      max2: p2MaxPts,
+    };
+
+    for (let i in Object.keys(cupData.matches)) {
+      let j = 0;
+      for (j = 0; j < cupData.matches[i].length; ++j) {
+        const matchItem = cupData.matches[i][j];
+
+        if (
+          matchItem.left === player1.selectedIndex - 1 &&
+          matchItem.right === player2.selectedIndex - 1
+        ) {
+          cupData.matches[i][j].status = "finished";
+          cupData.matches[i][j].date = chooseDate.value;
+          cupData.matches[i][j].s1 = p1Songer;
+          cupData.matches[i][j].s2 = p2Songer;
+          cupData.matches[i][j].p1 = p1Pointer;
+          cupData.matches[i][j].p2 = p2Pointer;
+          cupData.matches[i][j].max1 = p1MaxPts;
+          cupData.matches[i][j].max2 = p2MaxPts;
+          cupData.matches[i][j].e1 = p1Efficient;
+          cupData.matches[i][j].e2 = p2Efficient;
+          break;
+        }
+      }
+      if (j < cupData.matches[i].length) break;
+    }
+
+    await updateDoc(doc(db, "cups", matchData.cup_id), {
+      matches: cupData.matches,
+    });
+
+    await addDoc(matchesRef, matchData);
+
+    let flag = false;
+    for (let i in Object.keys(arenaData.ranks)) {
+      if (arenaData.ranks[i].id === matchData.p1_id) {
+        flag = true;
+        arenaData.ranks[i].d += 1;
+        arenaData.ranks[i].m =
+          arenaData.ranks[i].m > matchData.max1
+            ? arenaData.ranks[i].m
+            : matchData.max1;
+        arenaData.ranks[i].w += matchData.w1 === "Won";
+        arenaData.ranks[i].e =
+          (arenaData.ranks[i].e * (arenaData.ranks[i].d - 1) + matchData.e1) /
+          arenaData.ranks[i].d;
+        arenaData.ranks[i].tp =
+          (arenaData.ranks[i].tp * (arenaData.ranks[i].d - 1) + matchData.tp1) /
+          arenaData.ranks[i].d;
+        arenaData.ranks[i].lp += matchData.w1 === "Won" ? 150 : 100;
+        break;
+      }
+    }
+
+    if (!flag) {
+      const newData = {};
+      newData.id = matchData.p1_id;
+      newData.name = matchData.p1_name;
+      newData.d = 1;
+      newData.m = matchData.max1;
+      newData.w = matchData.w1 === "Won" ? 1 : 0;
+      newData.e = matchData.e1;
+      newData.tp = matchData.tp1;
+      newData.lp = matchData.w1 === "Won" ? 150 : 100;
+      arenaData.ranks[Object.keys(arenaData.ranks).length] = newData;
+    }
+
+    flag = false;
+
+    for (let i in Object.keys(arenaData.ranks)) {
+      if (arenaData.ranks[i].id === matchData.p2_id) {
+        flag = true;
+        arenaData.ranks[i].d += 1;
+        arenaData.ranks[i].m =
+          arenaData.ranks[i].m > matchData.max2
+            ? arenaData.ranks[i].m
+            : matchData.max2;
+        arenaData.ranks[i].w += matchData.w2 === "Won";
+        arenaData.ranks[i].e =
+          (arenaData.ranks[i].e * (arenaData.ranks[i].d - 1) + matchData.e2) /
+          arenaData.ranks[i].d;
+        arenaData.ranks[i].tp =
+          (arenaData.ranks[i].tp * (arenaData.ranks[i].d - 1) + matchData.tp2) /
+          arenaData.ranks[i].d;
+        arenaData.ranks[i].lp += matchData.w2 === "Won" ? 150 : 100;
+        break;
+      }
+    }
+
+    if (!flag) {
+      const newData = {};
+      newData.id = matchData.p2_id;
+      newData.name = matchData.p2_name;
+      newData.d = 1;
+      newData.m = matchData.max2;
+      newData.w = matchData.w2 === "Won" ? 1 : 0;
+      newData.e = matchData.e2;
+      newData.tp = matchData.tp2;
+      newData.lp = matchData.w2 === "Won" ? 150 : 100;
+      arenaData.ranks[Object.keys(arenaData.ranks).length] = newData;
+    }
+
+    await updateDoc(doc(db, "arenas", matchData.arena_id), {
+      ranks: arenaData.ranks,
+    });
+    Toastify({
+      text: "Match saved successfully",
+      style: { background: "#2ecc71" },
+    }).showToast();
+  });
+
+  document.body.removeChild(loadingDiv);
+};

@@ -6,3 +6,4 @@ export const NEW_ARENA = "/matches/new-arena.html";
 export const CUP_STATS = "/matches/cup-stats.html";
 export const ACCOUNT_ROUTE = "/account.html";
 export const ARENAS = "/account/arenas.html";
+export const NEW_MATCH = "/matches/new.html";
