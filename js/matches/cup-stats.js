@@ -43,11 +43,13 @@ window.onload = async () => {
 
   // add matches to table
   const matchTable = document.getElementById("match-table");
+  const standings = {};
   for (let day in Object.keys(cupData.matches)) {
     let idx = 0;
     for (let match of cupData.matches[day]) {
       const trItem = document.createElement("tr");
-      trItem.className = "pending";
+      trItem;
+      console.log(match);
       switch (match.status) {
         case "pending":
           trItem.innerHTML = `<td>
@@ -57,24 +59,91 @@ window.onload = async () => {
           <br/>
           <span>${cupData.tshirt_names[match.right]}</span>
         </td>
-        <td><button class="button" id="btn-${day}-${idx}">Start</button></td>`;
+        <td></td>
+        <td style="padding-top: 20px"><button class="button" id="btn-${day}-${idx}">Start</button></td>`;
           break;
         case "finished":
           trItem.innerHTML = `<td>${cupData.arena_name}</td>
-      <td>${match.info.date}</td>
+      <td>${match.date}</td>
       <td>${cupData.category}</td>
 
       <td>${cupData.tshirt_names[match.left]}</td>
-      <td>${match.info.s1}</td>
-      <td>${match.info.p1}</td>
-      <td>${match.info.max1}</td>
-      <td>${match.info.e1}%</td>
+      <td>${match.s1}</td>
+      <td>${match.p1}</td>
+      <td>${match.max1}</td>
+      <td>${match.e1.toFixed(2)}%</td>
 
       <td>${cupData.tshirt_names[match.right]}</td>
-      <td>${match.info.s2}</td>
-      <td>${match.info.p2}</td>
-      <td>${match.info.max2}</td>
-      <td>${match.info.e2}%</td>`;
+      <td>${match.s2}</td>
+      <td>${match.p2}</td>
+      <td>${match.max2}</td>
+      <td>${match.e2.toFixed(2)}%</td>`;
+
+          if (
+            Object.keys(standings).some((key) => key === match.left.toString())
+          ) {
+            standings[match.left.toString()].d += 1;
+            standings[match.left.toString()].m =
+              standings[match.left.toString()].d.m > match.max1
+                ? standings[match.left.toString()].d.m
+                : match.max1;
+            standings[match.left.toString()].w += match.p1 > match.p2 ? 1 : 0;
+            standings[match.left.toString()].s += match.p1;
+            standings[match.left.toString()].d;
+            standings[match.left.toString()].e =
+              (standings[match.left.toString()].e *
+                (standings[match.left.toString()].d - 1) +
+                match.e1) /
+              standings[match.left.toString()].d;
+            standings[match.left.toString()].tp =
+              (standings[match.left.toString()].tp *
+                (standings[match.left.toString()].d - 1) +
+                match.tp1) /
+              standings[match.left.toString()].d;
+          } else {
+            standings[match.left.toString()] = {
+              name: cupData.tshirt_names[match.left],
+              d: 1,
+              m: match.max1,
+              w: match.p1 > match.p2 ? 1 : 0,
+              s: match.p1,
+              e: match.e1,
+              tp: match.tp1,
+            };
+          }
+
+          if (
+            Object.keys(standings).some((key) => key === match.right.toString())
+          ) {
+            standings[match.right.toString()].d += 1;
+            standings[match.right.toString()].m =
+              standings[match.right.toString()].d.m > match.max2
+                ? standings[match.right.toString()].d.m
+                : match.max2;
+            standings[match.right.toString()].w += match.p1 < match.p2 ? 1 : 0;
+            standings[match.right.toString()].s = match.p2;
+            standings[match.right.toString()].d;
+            standings[match.right.toString()].e =
+              (standings[match.right.toString()].e *
+                (standings[match.right.toString()].d - 1) +
+                match.e2) /
+              standings[match.right.toString()].d;
+            standings[match.right.toString()].tp =
+              (standings[match.right.toString()].tp *
+                (standings[match.right.toString()].d - 1) +
+                match.tp2) /
+              standings[match.left.toString()].d;
+          } else {
+            standings[match.right.toString()] = {
+              name: cupData.tshirt_names[match.right],
+              d: 1,
+              m: match.max2,
+              w: match.p1 < match.p2 ? 1 : 0,
+              s: match.p2,
+              e: match.e2,
+              tp: match.tp2,
+            };
+          }
           break;
       }
       matchTable.append(trItem);
@@ -106,6 +175,53 @@ window.onload = async () => {
       ++idx;
     }
   }
+
+  const ranks = [];
+  for (let i of Object.keys(standings)) {
+    ranks.push(standings[i]);
+  }
+  const sorted_ranks = ranks.sort((a, b) =>
+    b.w - a.w === 0 ? b.s - a.s : b.w - a.w
+  );
+  console.log(sorted_ranks);
+
+  let rank_index = 0;
+  for (let player of sorted_ranks) {
+    console.log(player.e);
+    const trElement = document.createElement("tr");
+    trElement.className = "cup-row";
+    trElement.innerHTML = `<td id="rank-position">${++rank_index}</td>
+    <td id="player" class="player-name table-highlight">${player.name}</td>
+    <td id="distance" class="distance">${player.d}</td>
+    <td id="matches-played">${player.m}</td>
+    <td id="matches-won">${player.w}</td>
+    <td id="total-songs">${player.s}</td>
+    <td id="efficiency">${player.e.toFixed(2)}%</td>
+    <td id="turbo-power" class="table-highlight">${player.tp.toFixed(2)}%</td>`;
+    document.getElementById("standing-table").append(trElement);
+  }
+
+  document.getElementById("cup-info-name").innerHTML = cupData.cup_name;
+  document.getElementById("cup-info-arena").innerHTML = cupData.arena_name;
+  document.getElementById("cup-info-category").innerHTML = cupData.category;
+  document.getElementById("cup-info-prize").innerHTML = cupData.prizes;
+  document.getElementById("cup-info-players").innerHTML =
+    cupData.players.length;
+  document.getElementById("cup-info-rounds").innerHTML = cupData.rounds;
+  const split_date = cupData.starting_date.split("-");
+  const start_date = new Date(
+    parseInt(split_date[0]),
+    parseInt(split_date[1]) - 1,
+    parseInt(split_date[2])
+  );
+  const end_date = new Date(start_date);
+  end_date.setDate(start_date.getDate() + 8);
+  document.getElementById("cup-info-timeframe").innerHTML = `${
+    cupData.starting_date
+  }<br/>
+  ${end_date.getFullYear()}-${(end_date.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${end_date.getDate().toString().padStart(2, "0")}`;
 
   document
     .getElementById("btn-standings")

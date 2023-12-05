@@ -320,6 +320,10 @@ window.onload = async () => {
   });
 
   document.getElementById("btn-send").addEventListener("click", async () => {
+    const loadingDiv = document.createElement("div");
+    loadingDiv.classList.add("loading");
+    document.body.appendChild(loadingDiv);
+
     console.log("Songs Counter:", p1Songer, p2Songer);
     console.log("Total Points: ", p1Pointer, p2Pointer);
     console.log("Match Winner: ", p1Winner, p2Winner);
@@ -387,6 +391,10 @@ window.onload = async () => {
           cupData.matches[i][j].max2 = p2MaxPts;
           cupData.matches[i][j].e1 = p1Efficient;
           cupData.matches[i][j].e2 = p2Efficient;
+          cupData.matches[i][j].tp1 = p1TurboPower;
+          cupData.matches[i][j].tp2 = p2TurboPower;
+          cupData.matches[i][j].av1 = p1Avg;
+          cupData.matches[i][j].av2 = p2Avg;
           break;
         }
       }
@@ -475,6 +483,8 @@ window.onload = async () => {
       text: "Match saved successfully",
       style: { background: "#2ecc71" },
     }).showToast();
+
+    document.body.removeChild(loadingDiv);
   });
 
   document.body.removeChild(loadingDiv);
