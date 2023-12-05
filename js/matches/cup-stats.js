@@ -1,26 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import {
   getFirestore,
-  collection,
-  where,
-  query,
-  getDocs,
   getDoc,
-  updateDoc,
-  arrayUnion,
   doc,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 import { firebaseConfig } from "../config.js";
-import { ARENAS, CUP_STATS, LOGIN_ROUTE, NEW_MATCH } from "../constant.js";
+import { NEW_MATCH } from "../constant.js";
 
 // initialize firebase connection
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const db = getFirestore(app);
-const usersRef = collection(db, "users");
-const cupsRef = collection(db, "cups");
 
 const showPanel = (id) => () => {
   for (let i = 0; i < 3; ++i) {
@@ -82,30 +72,25 @@ window.onload = async () => {
           if (
             Object.keys(standings).some((key) => key === match.left.toString())
           ) {
-            standings[match.left.toString()].d += 1;
-            standings[match.left.toString()].m =
-              standings[match.left.toString()].d.m > match.max1
-                ? standings[match.left.toString()].d.m
-                : match.max1;
-            standings[match.left.toString()].w += match.p1 > match.p2 ? 1 : 0;
+            standings[match.left.toString()].m += 1;
+            standings[match.left.toString()].w += match.s1 > match.s2 ? 1 : 0;
             standings[match.left.toString()].s += match.p1;
-            standings[match.left.toString()].d;
             standings[match.left.toString()].e =
               (standings[match.left.toString()].e *
-                (standings[match.left.toString()].d - 1) +
+                (standings[match.left.toString()].m - 1) +
                 match.e1) /
-              standings[match.left.toString()].d;
+              standings[match.left.toString()].m;
             standings[match.left.toString()].tp =
               (standings[match.left.toString()].tp *
-                (standings[match.left.toString()].d - 1) +
+                (standings[match.left.toString()].m - 1) +
                 match.tp1) /
-              standings[match.left.toString()].d;
+              standings[match.left.toString()].m;
           } else {
             standings[match.left.toString()] = {
               name: cupData.tshirt_names[match.left],
-              d: 1,
-              m: match.max1,
-              w: match.p1 > match.p2 ? 1 : 0,
+              d: cupData.distances[match.left],
+              m: 1,
+              w: match.s1 > match.s2 ? 1 : 0,
               s: match.p1,
               e: match.e1,
               tp: match.tp1,
@@ -115,30 +100,25 @@ window.onload = async () => {
           if (
             Object.keys(standings).some((key) => key === match.right.toString())
           ) {
-            standings[match.right.toString()].d += 1;
-            standings[match.right.toString()].m =
-              standings[match.right.toString()].d.m > match.max2
-                ? standings[match.right.toString()].d.m
-                : match.max2;
-            standings[match.right.toString()].w += match.p1 < match.p2 ? 1 : 0;
-            standings[match.right.toString()].s = match.p2;
-            standings[match.right.toString()].d;
+            standings[match.right.toString()].m += 1;
+            standings[match.right.toString()].w += match.s1 < match.s2 ? 1 : 0;
+            standings[match.right.toString()].s += match.p2;
             standings[match.right.toString()].e =
               (standings[match.right.toString()].e *
-                (standings[match.right.toString()].d - 1) +
+                (standings[match.right.toString()].m - 1) +
                 match.e2) /
-              standings[match.right.toString()].d;
+              standings[match.right.toString()].m;
             standings[match.right.toString()].tp =
               (standings[match.right.toString()].tp *
-                (standings[match.right.toString()].d - 1) +
+                (standings[match.right.toString()].m - 1) +
                 match.tp2) /
-              standings[match.left.toString()].d;
+              standings[match.left.toString()].m;
           } else {
             standings[match.right.toString()] = {
               name: cupData.tshirt_names[match.right],
-              d: 1,
-              m: match.max2,
-              w: match.p1 < match.p2 ? 1 : 0,
+              d: cupData.distances[match.right],
+              m: 1,
+              w: match.s1 < match.s2 ? 1 : 0,
               s: match.p2,
               e: match.e2,
               tp: match.tp2,
@@ -206,7 +186,7 @@ window.onload = async () => {
   document.getElementById("cup-info-category").innerHTML = cupData.category;
   document.getElementById("cup-info-prize").innerHTML = cupData.prizes;
   document.getElementById("cup-info-players").innerHTML =
-    cupData.players.length;
+    (cupData.players.length * (cupData.players.length - 1)) / 2;
   document.getElementById("cup-info-rounds").innerHTML = cupData.rounds;
   const split_date = cupData.starting_date.split("-");
   const start_date = new Date(

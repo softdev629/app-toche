@@ -87,6 +87,7 @@ window.onload = () => {
               await updateDoc(doc(db, "cups", cupDoc.id), {
                 players: arrayUnion(userQuerySnapshot.docs[0].id),
                 tshirt_names: arrayUnion(userDoc.tshirt_name),
+                distances: arrayUnion(userDoc.distance),
               });
               Toastify({
                 text: "Cup joined successfully",

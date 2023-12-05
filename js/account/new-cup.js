@@ -118,6 +118,8 @@ function generateFixtures(event) {
     status: "upcoming",
     players: [],
     type: "special",
+    tshirt_names: [],
+    distances: [],
   }).then(() => {
     Toastify({
       text: "Cup generated successfully",
