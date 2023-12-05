@@ -3,7 +3,7 @@ import {
   getFirestore,
   query,
   collection,
-  orderBy,
+  limit,
   getDocs,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
@@ -20,7 +20,7 @@ window.onload = async () => {
   loadingDiv.classList.add("loading");
   document.body.appendChild(loadingDiv);
 
-  const q = query(matchesRef);
+  const q = query(matchesRef, limit(20));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const data = doc.data();

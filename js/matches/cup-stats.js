@@ -170,14 +170,14 @@ window.onload = async () => {
     console.log(player.e);
     const trElement = document.createElement("tr");
     trElement.className = "cup-row";
-    trElement.innerHTML = `<td id="rank-position">${++rank_index}</td>
-    <td id="player" class="player-name table-highlight">${player.name}</td>
-    <td id="distance" class="distance">${player.d}</td>
-    <td id="matches-played">${player.m}</td>
-    <td id="matches-won">${player.w}</td>
-    <td id="total-songs">${player.s}</td>
-    <td id="efficiency">${player.e.toFixed(2)}%</td>
-    <td id="turbo-power" class="table-highlight">${player.tp.toFixed(2)}%</td>`;
+    trElement.innerHTML = `<td>${++rank_index}</td>
+    <td class="player-name table-highlight">${player.name}</td>
+    <td class="distance">${player.d}</td>
+    <td>${player.m}</td>
+    <td>${player.w}</td>
+    <td>${player.s}</td>
+    <td>${player.e.toFixed(2)}%</td>
+    <td class="table-highlight">${player.tp.toFixed(2)}%</td>`;
     document.getElementById("standing-table").append(trElement);
   }
 

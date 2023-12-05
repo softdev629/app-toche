@@ -411,18 +411,14 @@ window.onload = async () => {
     for (let i in Object.keys(arenaData.ranks)) {
       if (arenaData.ranks[i].id === matchData.p1_id) {
         flag = true;
-        arenaData.ranks[i].d += 1;
-        arenaData.ranks[i].m =
-          arenaData.ranks[i].m > matchData.max1
-            ? arenaData.ranks[i].m
-            : matchData.max1;
+        arenaData.ranks[i].m += 1;
         arenaData.ranks[i].w += matchData.w1 === "Won";
         arenaData.ranks[i].e =
-          (arenaData.ranks[i].e * (arenaData.ranks[i].d - 1) + matchData.e1) /
-          arenaData.ranks[i].d;
+          (arenaData.ranks[i].e * (arenaData.ranks[i].m - 1) + matchData.e1) /
+          arenaData.ranks[i].m;
         arenaData.ranks[i].tp =
-          (arenaData.ranks[i].tp * (arenaData.ranks[i].d - 1) + matchData.tp1) /
-          arenaData.ranks[i].d;
+          (arenaData.ranks[i].tp * (arenaData.ranks[i].m - 1) + matchData.tp1) /
+          arenaData.ranks[i].m;
         arenaData.ranks[i].lp += matchData.w1 === "Won" ? 150 : 100;
         break;
       }
@@ -432,8 +428,8 @@ window.onload = async () => {
       const newData = {};
       newData.id = matchData.p1_id;
       newData.name = matchData.p1_name;
-      newData.d = 1;
-      newData.m = matchData.max1;
+      newData.d = cupData.distances[player1.selectedIndex - 1];
+      newData.m = 1;
       newData.w = matchData.w1 === "Won" ? 1 : 0;
       newData.e = matchData.e1;
       newData.tp = matchData.tp1;
@@ -446,17 +442,13 @@ window.onload = async () => {
     for (let i in Object.keys(arenaData.ranks)) {
       if (arenaData.ranks[i].id === matchData.p2_id) {
         flag = true;
-        arenaData.ranks[i].d += 1;
-        arenaData.ranks[i].m =
-          arenaData.ranks[i].m > matchData.max2
-            ? arenaData.ranks[i].m
-            : matchData.max2;
+        arenaData.ranks[i].m += 1;
         arenaData.ranks[i].w += matchData.w2 === "Won";
         arenaData.ranks[i].e =
-          (arenaData.ranks[i].e * (arenaData.ranks[i].d - 1) + matchData.e2) /
-          arenaData.ranks[i].d;
+          (arenaData.ranks[i].e * (arenaData.ranks[i].m - 1) + matchData.e2) /
+          arenaData.ranks[i].m;
         arenaData.ranks[i].tp =
-          (arenaData.ranks[i].tp * (arenaData.ranks[i].d - 1) + matchData.tp2) /
+          (arenaData.ranks[i].tp * (arenaData.ranks[i].m - 1) + matchData.tp2) /
           arenaData.ranks[i].d;
         arenaData.ranks[i].lp += matchData.w2 === "Won" ? 150 : 100;
         break;
@@ -467,8 +459,8 @@ window.onload = async () => {
       const newData = {};
       newData.id = matchData.p2_id;
       newData.name = matchData.p2_name;
-      newData.d = 1;
-      newData.m = matchData.max2;
+      newData.d = cupData.distances[player2.selectedIndex - 1];
+      newData.m = 1;
       newData.w = matchData.w2 === "Won" ? 1 : 0;
       newData.e = matchData.e2;
       newData.tp = matchData.tp2;
