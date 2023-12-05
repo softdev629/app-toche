@@ -61,13 +61,13 @@ window.onload = async () => {
       <td>${match.s1}</td>
       <td>${match.p1}</td>
       <td>${match.max1}</td>
-      <td>${match.e1.toFixed(2)}%</td>
+      <td>${match.e1.toFixed(0)}%</td>
 
       <td>${cupData.tshirt_names[match.right]}</td>
       <td>${match.s2}</td>
       <td>${match.p2}</td>
       <td>${match.max2}</td>
-      <td>${match.e2.toFixed(2)}%</td>`;
+      <td>${match.e2.toFixed(0)}%</td>`;
 
           if (
             Object.keys(standings).some((key) => key === match.left.toString())
@@ -176,8 +176,8 @@ window.onload = async () => {
     <td>${player.m}</td>
     <td>${player.w}</td>
     <td>${player.s}</td>
-    <td>${player.e.toFixed(2)}%</td>
-    <td class="table-highlight">${player.tp.toFixed(2)}%</td>`;
+    <td>${player.e.toFixed(0)}%</td>
+    <td class="table-highlight">${player.tp.toFixed(0)}%</td>`;
     document.getElementById("standing-table").append(trElement);
   }
 

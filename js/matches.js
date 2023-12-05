@@ -34,13 +34,13 @@ window.onload = async () => {
     <td id="p1Songs">${data.s1}</td>
     <td id="p1Points">${data.pt1}</td>
     <td id="p1MaxPS">${data.max1}</td>
-    <td id="p1Efficiency">${data.e1.toFixed(2)}%</td>
+    <td id="p1Efficiency">${data.e1.toFixed(0)}%</td>
 
     <td id="player2">${data.p2_name}</td>
     <td id="p2Songs">${data.s2}</td>
     <td id="p2Points">${data.pt2}</td>
     <td id="p2MaxPS">${data.max2}</td>
-    <td id="p2Efficiency">${data.e2.toFixed(2)}%</td>`;
+    <td id="p2Efficiency">${data.e2.toFixed(0)}%</td>`;
 
     document.getElementById("statics-table").appendChild(trElement);
   });
