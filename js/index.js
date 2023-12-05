@@ -17,6 +17,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 import { firebaseConfig } from "./config.js";
+import { LOGIN_ROUTE } from "./constant.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
