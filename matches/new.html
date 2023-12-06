@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/new-match.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
 
     <title>New Match</title>
   </head>
@@ -13,22 +18,18 @@
   <body>
     <header>
       <div class="header-back">
-        <a href="/index.html" class="back-arrow"
+        <a href="/matches/cup-stats.html" class="back-arrow"
           ><img src="/img/Back.svg" alt="" class="icon-arrow"
         /></a>
 
         <!-- CHOOSE ARENA ** TODO now input on dropdown is manual  -->
         <select
           name="chooseArena"
-          id="arena"
+          id="chooseArena"
           class="dropdown nmArena"
           placeholder="Choose Arena"
           required
-        >
-          <!-- <option disabled hidden selected>Choose arena</option> -->
-          <option value="Berlin HQ">Berlin HQ</option>
-          <option value="Bogota">Bogota</option>
-        </select>
+        ></select>
       </div>
     </header>
 
@@ -45,11 +46,6 @@
             required
           >
             <option disabled hidden selected>Player 1</option>
-            <option value="Anna">Anna</option>
-            <option value="Hendrik">Hendrik</option>
-            <option value="Juan">Juan</option>
-            <option value="Kika">Kika</option>
-            <option value="Puki">Puki</option>
           </select>
           <select
             name="player2"
@@ -59,45 +55,16 @@
             required
           >
             <option disabled hidden selected>Player 2</option>
-            <option value="Anna">Anna</option>
-            <option value="Hendrik">Hendrik</option>
-            <option value="Juan">Juan</option>
-            <option value="Kika">Kika</option>
-            <option value="Puki">Puki</option>
           </select>
-
-          <!-- ** IF INPUTTING NAME -->
-          <!-- <label for="player1">PLAYER 1</label>
-                <label for="player2">PLAYER 2</label> -->
-          <!-- <input type="text" class="score-input-name" id="player1" placeholder="Enter name" required> -->
-          <!-- <input type="text" class="score-input-name" id="player2" placeholder="Enter name" required> -->
-          <!-- <div class="feedback"></div> -->
-          <!-- <div class="feedback2"></div> -->
         </div>
 
         <!-- MATCH SPECS: CUP NAME & DATE -->
         <div class="match-type">
-          <!-- !  CATEGORY taken out for now -->
-          <!-- <label for="choose-category" class="label">Category</label>
-                <select name="choose-category" id="choose-category" class="dropdown" required>
-                    <option disabled hidden selected>Please choose</option>
-                    <option value="arena">Arena</option>
-                    <option value="city">City</option>
-                    <option value="national">National</option>
-                    <option value="global">Global</option>
-                    <option value="indie">Indie</option>
-                </select> -->
-
-          <!-- TODO now input on dropdown is manual  -->
           <select name="chooseCup" id="chooseCup" class="dropdown" required>
             <option disabled hidden selected>Select cup</option>
-            <option value="Winter 2023">Winter 2023</option>
-            <option value="Spring 2023">Spring 2023</option>
-            <option value="Summer 2023">Summer 2023</option>
-            <option value="Autumn 2023">Autumn 2023</option>
           </select>
 
-          <input type="date" id="date" class="dropdown" required />
+          <input type="date" id="chooseDate" class="dropdown" required />
         </div>
 
         <!-- INPUT SCORE -->
@@ -320,7 +287,7 @@
         <!-- TODO send all info on click -->
         <!-- CLOSE/SEND BUTTON -->
         <div class="button-div">
-          <input type="submit" value="Send" class="button" />
+          <button class="button" id="btn-send">Send</button>
         </div>
       </form>
 
@@ -328,6 +295,10 @@
     </main>
 
     <!-- script -->
-    <script src="/js/matches/new.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="/js/matches/new.js" type="module"></script>
   </body>
 </html>

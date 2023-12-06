@@ -53,6 +53,9 @@ const loginHandler = (event) => {
 
       // Show error toat
       Toastify({ text: errMsg, style: { background: "#e74c3c" } }).showToast();
+
+      // Login request processing finished
+      document.body.removeChild(loadingDiv);
     });
 };
 

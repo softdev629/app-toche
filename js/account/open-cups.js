@@ -91,9 +91,22 @@ window.onload = () => {
         upcomingSection.appendChild(upcomingBox);
 
         const onClose = async () => {
+          const standings = {};
+          for (let i = 0; i < cupData.players.length; ++i) {
+            standings[i] = {
+              d: 0,
+              m: 0,
+              w: 0,
+              s: 0,
+              e: 0,
+              tp: 0,
+            };
+          }
+
           await updateDoc(doc(db, "cups", cupDoc.id), {
             status: "ongoing",
             matches: schedule,
+            standings,
           });
           Toastify({
             text: "Cup's been ongoing successfully",
