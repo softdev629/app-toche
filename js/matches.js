@@ -45,5 +45,13 @@ window.onload = async () => {
     document.getElementById("statics-table").appendChild(trElement);
   });
 
+  document.getElementById("openBtn").addEventListener("click", () => {
+    document.getElementById("popup1").style.display = "block";
+  });
+
+  document.getElementById("ico-close").addEventListener("click", () => {
+    document.getElementById("popup1").style.display = "none";
+  });
+
   document.body.removeChild(loadingDiv);
 };

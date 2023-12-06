@@ -55,4 +55,12 @@ window.onload = async () => {
     optionElement.innerHTML = arenaData.name;
     document.getElementById("chooseRanking").append(optionElement);
   });
+
+  document.getElementById("openBtn").addEventListener("click", () => {
+    document.getElementById("popup2").style.display = "block";
+  });
+
+  document.getElementById("ico-close").addEventListener("click", () => {
+    document.getElementById("popup2").style.display = "none";
+  });
 };

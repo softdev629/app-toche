@@ -12,6 +12,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 import { firebaseConfig } from "../config.js";
+import { CUP_STATS } from "../constant.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -35,16 +36,16 @@ const chooseDate = document.getElementById("chooseDate");
 const p1Array = [];
 const p2Array = [];
 
-for (let i = 1; i <= 25; ++i) {
-  p1Array.push(document.getElementById(`p1s${i}Points`));
-  document.getElementById(`p1s${i}Points`).value = Math.floor(
-    Math.random() * 11 + 15
-  );
-  p2Array.push(document.getElementById(`p2s${i}Points`));
-  document.getElementById(`p2s${i}Points`).value = Math.floor(
-    Math.random() * 11 + 15
-  );
-}
+// for (let i = 1; i <= 25; ++i) {
+//   p1Array.push(document.getElementById(`p1s${i}Points`));
+//   document.getElementById(`p1s${i}Points`).value = Math.floor(
+//     Math.random() * 11 + 15
+//   );
+//   p2Array.push(document.getElementById(`p2s${i}Points`));
+//   document.getElementById(`p2s${i}Points`).value = Math.floor(
+//     Math.random() * 11 + 15
+//   );
+// }
 
 // SCORE CALCULATIONS
 const scoreCalculations = document.querySelector(".score-calculations");
@@ -471,10 +472,9 @@ window.onload = async () => {
     await updateDoc(doc(db, "arenas", matchData.arena_id), {
       ranks: arenaData.ranks,
     });
-    Toastify({
-      text: "Match saved successfully",
-      style: { background: "#2ecc71" },
-    }).showToast();
+    localStorage.setItem("toast", "Match finished successfully");
+    localStorage.setItem("toast_type", "success");
+    location.href = CUP_STATS;
 
     document.body.removeChild(loadingDiv);
   });

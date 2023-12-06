@@ -93,6 +93,7 @@ window.onload = () => {
         }
 
         // create html elements to show data
+
         const arenaInfoBox = document.createElement("div");
         arenaInfoBox.className = "arena-info-box";
 

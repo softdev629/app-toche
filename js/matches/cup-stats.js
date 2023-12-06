@@ -7,6 +7,7 @@ import {
 
 import { firebaseConfig } from "../config.js";
 import { NEW_MATCH } from "../constant.js";
+import { checkToast } from "../script.js";
 
 // initialize firebase connection
 const app = initializeApp(firebaseConfig);
@@ -21,15 +22,20 @@ const showPanel = (id) => () => {
 };
 
 window.onload = async () => {
+  checkToast();
+
   // loading data from firebase
   const loadingDiv = document.createElement("div");
   loadingDiv.classList.add("loading");
   document.body.appendChild(loadingDiv);
 
+  // load cup data from firebase
   const cupId = localStorage.getItem("cup_id");
   const cupDocRef = doc(db, "cups", cupId);
   const cupDoc = await getDoc(cupDocRef);
   const cupData = cupDoc.data();
+
+  document.getElementById("cup-title").innerHTML = cupData.cup_name;
 
   // add matches to table
   const matchTable = document.getElementById("match-table");
@@ -39,8 +45,8 @@ window.onload = async () => {
     for (let match of cupData.matches[day]) {
       const trItem = document.createElement("tr");
       trItem;
-      console.log(match);
       switch (match.status) {
+        // pending match item
         case "pending":
           trItem.innerHTML = `<td>
           <span>${cupData.tshirt_names[match.left]}</span>
@@ -52,6 +58,7 @@ window.onload = async () => {
         <td></td>
         <td style="padding-top: 20px"><button class="button" id="btn-${day}-${idx}">Start</button></td>`;
           break;
+        // finished match item
         case "finished":
           trItem.innerHTML = `<td>${cupData.arena_name}</td>
       <td>${match.date}</td>
@@ -69,6 +76,7 @@ window.onload = async () => {
       <td>${match.max2}</td>
       <td>${match.e2.toFixed(0)}%</td>`;
 
+          // sum up players match stats
           if (
             Object.keys(standings).some((key) => key === match.left.toString())
           ) {
@@ -127,6 +135,8 @@ window.onload = async () => {
           break;
       }
       matchTable.append(trItem);
+
+      // start match event
       if (match.status === "pending") {
         const today = new Date();
         const year = today.getFullYear();
@@ -156,18 +166,19 @@ window.onload = async () => {
     }
   }
 
+  // convert ranks object to array
   const ranks = [];
   for (let i of Object.keys(standings)) {
     ranks.push(standings[i]);
   }
+  // sort players by winning
   const sorted_ranks = ranks.sort((a, b) =>
     b.w - a.w === 0 ? b.s - a.s : b.w - a.w
   );
-  console.log(sorted_ranks);
 
+  // display rank in standings tab
   let rank_index = 0;
   for (let player of sorted_ranks) {
-    console.log(player.e);
     const trElement = document.createElement("tr");
     trElement.className = "cup-row";
     trElement.innerHTML = `<td>${++rank_index}</td>
@@ -181,6 +192,7 @@ window.onload = async () => {
     document.getElementById("standing-table").append(trElement);
   }
 
+  // display cup info
   document.getElementById("cup-info-name").innerHTML = cupData.cup_name;
   document.getElementById("cup-info-arena").innerHTML = cupData.arena_name;
   document.getElementById("cup-info-category").innerHTML = cupData.category;
@@ -188,6 +200,8 @@ window.onload = async () => {
   document.getElementById("cup-info-players").innerHTML =
     (cupData.players.length * (cupData.players.length - 1)) / 2;
   document.getElementById("cup-info-rounds").innerHTML = cupData.rounds;
+
+  // display duration
   const split_date = cupData.starting_date.split("-");
   const start_date = new Date(
     parseInt(split_date[0]),
@@ -203,6 +217,7 @@ window.onload = async () => {
     .toString()
     .padStart(2, "0")}-${end_date.getDate().toString().padStart(2, "0")}`;
 
+  // connect evens with each tab
   document
     .getElementById("btn-standings")
     .addEventListener("click", showPanel(0));
@@ -210,6 +225,8 @@ window.onload = async () => {
     .getElementById("btn-matches")
     .addEventListener("click", showPanel(1));
   document.getElementById("btn-info").addEventListener("click", showPanel(2));
+
+  showPanel(0)();
 
   document.body.removeChild(loadingDiv);
 };
