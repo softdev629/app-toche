@@ -264,6 +264,7 @@ window.onload = () => {
       const snapshotCups = await getDocs(qCups);
       snapshotCups.forEach((cupDoc) => {
         const cupData = cupDoc.data();
+        if (cupData.status === "upcoming") return;
 
         const standings = {};
         for (let day in Object.keys(cupData.matches)) {
