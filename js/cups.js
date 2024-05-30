@@ -15,7 +15,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 import { firebaseConfig } from "./config.js";
-import { CUP_STATS, LOGIN_ROUTE } from "./constant.js";
+import { ARENAS, CUP_STATS, LOGIN_ROUTE } from "./constant.js";
 
 // initialize firebase connection
 const app = initializeApp(firebaseConfig);
@@ -42,6 +42,13 @@ window.onload = () => {
       const userQ = query(usersRef, where("email", "==", user.email));
       const userQuerySnapshot = await getDocs(userQ);
       const userDoc = userQuerySnapshot.docs[0].data();
+
+      if (userDoc.arenas.length === 0) {
+        localStorage.setItem("toast", "Join arenas first");
+        localStorage.setItem("toast_type", "error");
+        location.href = ARENAS;
+        return;
+      }
 
       // filter joined arena cups
       const cupsQ = query(cupsRef, where("arena_id", "in", userDoc.arenas));
@@ -79,6 +86,8 @@ window.onload = () => {
             const onJoin = async () => {
               await updateDoc(doc(db, "cups", cupDoc.id), {
                 players: arrayUnion(userQuerySnapshot.docs[0].id),
+                tshirt_names: arrayUnion(userDoc.tshirt_name),
+                distances: arrayUnion(userDoc.distance),
               });
               Toastify({
                 text: "Cup joined successfully",
@@ -104,7 +113,7 @@ window.onload = () => {
   
               <div class="banner-left">
                 <img src="/img/${cupData.banner}" alt="" class="banner-pix" />
-                <p class="cup-cell-on">${cupData.status.toUppercase()}</p>
+                <p class="cup-cell-on">${cupData.status}</p>
               </div>
   
               <div class="banner-right">

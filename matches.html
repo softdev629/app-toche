@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200,500;600;700" rel="stylesheet"> -->
 
     <title>Matches</title>
   </head>
@@ -26,7 +24,7 @@
       <!-- POPUP **** NOT WORKING-->
       <div id="popup1" class="popup">
         <div class="popup-content">
-          <span class="close" onclick="closePopup()">&times;</span>
+          <span class="close" id="ico-close">&times;</span>
           <p>P</p>
           <p>Points</p>
           <p>S</p>
@@ -54,128 +52,7 @@
       </div>
 
       <table style="width: 100%" class="basic-table table-matches">
-        <tbody>
-          <tr>
-            <td id="arena">Berlin HQ</td>
-            <td id="date">2022.11.30</td>
-            <td id="category">Arena</td>
-
-            <td id="player1">Juan</td>
-            <td id="p1Songs">13</td>
-            <td id="p1Points">313</td>
-            <td id="p1MaxPS">23</td>
-            <td id="p1Efficiency">26%</td>
-
-            <td id="player2">Puki</td>
-            <td id="p2Songs">12</td>
-            <td id="p2Points">303</td>
-            <td id="p2MaxPS">21</td>
-            <td id="p2Efficiency">24%</td>
-          </tr>
-
-          <tr>
-            <td id="arena">Berlin HQ</td>
-            <td id="date">2022.11.30</td>
-            <td id="category">Arena</td>
-
-            <td id="player1">Juan</td>
-            <td id="p1Songs">13</td>
-            <td id="p1Points">313</td>
-            <td id="p1MaxPS">23</td>
-            <td id="p1Efficiency">26%</td>
-
-            <td id="player2">Puki</td>
-            <td id="p2Songs">12</td>
-            <td id="p2Points">303</td>
-            <td id="p2MaxPS">21</td>
-            <td id="p2Efficiency">24%</td>
-          </tr>
-          <tr>
-            <td id="arena">Berlin HQ</td>
-            <td id="date">2022.11.30</td>
-            <td id="category">Arena</td>
-
-            <td id="player1">Juan</td>
-            <td id="p1Songs">13</td>
-            <td id="p1Points">313</td>
-            <td id="p1MaxPS">23</td>
-            <td id="p1Efficiency">26%</td>
-
-            <td id="player2">Puki</td>
-            <td id="p2Songs">12</td>
-            <td id="p2Points">303</td>
-            <td id="p2MaxPS">21</td>
-            <td id="p2Efficiency">24%</td>
-          </tr>
-          <tr>
-            <td id="arena">Berlin HQ</td>
-            <td id="date">2022.11.30</td>
-            <td id="category">Arena</td>
-
-            <td id="player1">Juan</td>
-            <td id="p1Songs">13</td>
-            <td id="p1Points">313</td>
-            <td id="p1MaxPS">23</td>
-            <td id="p1Efficiency">26%</td>
-
-            <td id="player2">Puki</td>
-            <td id="p2Songs">12</td>
-            <td id="p2Points">303</td>
-            <td id="p2MaxPS">21</td>
-            <td id="p2Efficiency">24%</td>
-          </tr>
-          <tr>
-            <td id="arena">Berlin HQ</td>
-            <td id="date">2022.11.30</td>
-            <td id="category">Arena</td>
-
-            <td id="player1">Juan</td>
-            <td id="p1Songs">13</td>
-            <td id="p1Points">313</td>
-            <td id="p1MaxPS">23</td>
-            <td id="p1Efficiency">26%</td>
-
-            <td id="player2">Puki</td>
-            <td id="p2Songs">12</td>
-            <td id="p2Points">303</td>
-            <td id="p2MaxPS">21</td>
-            <td id="p2Efficiency">24%</td>
-          </tr>
-          <tr>
-            <td id="arena">Berlin HQ</td>
-            <td id="date">2022.11.30</td>
-            <td id="category">Arena</td>
-
-            <td id="player1">Juan</td>
-            <td id="p1Songs">13</td>
-            <td id="p1Points">313</td>
-            <td id="p1MaxPS">23</td>
-            <td id="p1Efficiency">26%</td>
-
-            <td id="player2">Puki</td>
-            <td id="p2Songs">12</td>
-            <td id="p2Points">303</td>
-            <td id="p2MaxPS">21</td>
-            <td id="p2Efficiency">24%</td>
-          </tr>
-          <tr>
-            <td id="arena">Berlin HQ</td>
-            <td id="date">2022.11.30</td>
-            <td id="category">Arena</td>
-
-            <td id="player1">Juan</td>
-            <td id="p1Songs">13</td>
-            <td id="p1Points">313</td>
-            <td id="p1MaxPS">23</td>
-            <td id="p1Efficiency">26%</td>
-
-            <td id="player2">Puki</td>
-            <td id="p2Songs">12</td>
-            <td id="p2Points">303</td>
-            <td id="p2MaxPS">21</td>
-            <td id="p2Efficiency">24%</td>
-          </tr>
-        </tbody>
+        <tbody id="statics-table"></tbody>
       </table>
 
       <div class="spacer150"></div>
@@ -211,5 +88,6 @@
     </nav>
 
     <!-- script -->
+    <script src="/js/matches.js" type="module"></script>
   </body>
 </html>

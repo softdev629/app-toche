@@ -41,10 +41,10 @@ function generateFixtures(event) {
   // };
 
   // // Upload file and metadata to the object 'images/mountains.jpg'
-  // const timestamp = new Date().getTime(); // Get current timestamp
-  // const randomString = Math.random().toString(36).substring(2); // Generate random string
+  const timestamp = new Date().getTime(); // Get current timestamp
+  const randomString = Math.random().toString(36).substring(2); // Generate random string
 
-  // const fileName = `img_${timestamp}_${randomString}`; // Combine timestamp and random string
+  const fileName = `img_${timestamp}_${randomString}`; // Combine timestamp and random string
   const file = document.getElementById("banner").files[0];
   // const storageRef = ref(
   //   storage,
@@ -52,7 +52,7 @@ function generateFixtures(event) {
   // );
   // const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
-  // // Listen for state changes, errors, and completion of the upload.
+  // Listen for state changes, errors, and completion of the upload.
   // uploadTask.on(
   //   "state_changed",
   //   (snapshot) => {
@@ -96,7 +96,7 @@ function generateFixtures(event) {
 
   // get cup inputs
   const category = document.getElementById("category").value;
-  const trophyType = document.getElementById("trophyType").value;
+  // const trophyType = document.getElementById("trophyType").value;
   const prizes = document.getElementById("prizes").value;
   const arenaID = document.getElementById("arena-id").value;
   const arenaName = document.getElementById("arena-name").innerHTML;
@@ -107,7 +107,7 @@ function generateFixtures(event) {
   // save cup info and match plan in firestore(cup collection)
   addDoc(cupsRef, {
     category,
-    trophy_type: trophyType,
+    // trophy_type: trophyType,
     prizes,
     arena_id: arenaID,
     arena_name: arenaName,
@@ -118,6 +118,8 @@ function generateFixtures(event) {
     status: "upcoming",
     players: [],
     type: "special",
+    tshirt_names: [],
+    distances: [],
   }).then(() => {
     Toastify({
       text: "Cup generated successfully",
@@ -126,59 +128,6 @@ function generateFixtures(event) {
     document.getElementById("cup-form").reset();
     document.getElementById("preview").src = "";
   });
-}
-
-// number of total matches
-export function calculateMatches(players) {
-  return (players * (players - 1)) / 2;
-}
-
-export function generateMatchdays(players) {
-  const matchdays = {};
-
-  switch (players % 2) {
-    // if number of players is even
-    case 0:
-      // center loop is center axios
-      for (let center = 0; center < players - 1; ++center) {
-        matchdays[`${center}`] = [];
-        // first make a plan about without one player (players - 1 : odd)
-        // half loop is delta from axios
-        for (let half = 1; half <= (players - 2) / 2; ++half) {
-          // get two elements which is same distance away from center axios(delta half away)
-          matchdays[`${center}`].push({
-            left:
-              center + half >= players - 1
-                ? center + half - players + 1
-                : center + half,
-            right:
-              center - half < 0 ? center - half + players - 1 : center - half,
-          });
-        }
-        // add player which isn't included in the match with last player
-        matchdays[`${center}`].push({ left: center, right: players - 1 });
-      }
-      break;
-    // if number of players is odd
-    case 1:
-      // center loop is center axios
-      for (let center = 0; center < players; ++center) {
-        matchdays[`${center}`] = [];
-        // half loop is delta from axios
-        for (let half = 1; half <= (players - 1) / 2; ++half)
-          // get two elements which is same distance away from center axios(delta half away)
-          matchdays[`${center}`].push({
-            left:
-              center + half >= players
-                ? center + half - players
-                : center + half,
-            right: center - half < 0 ? center - half + players : center - half,
-          });
-      }
-      break;
-  }
-
-  return matchdays;
 }
 
 const onFileChange = (event) => {

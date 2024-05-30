@@ -466,6 +466,12 @@ table {
   height: 90px;
 }
 
+.table-matches tr .pending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .table-matches td:nth-child(1) {
   width: 45%;
   padding-left: 15px;
@@ -513,6 +519,19 @@ table {
   text-align: center;
 }
 
+.table-matches td span {
+  color: var(--orange);
+  font-size: 16px;
+}
+
+.pending td:nth-child(2) {
+  width: 50%;
+}
+
+.pending button {
+  margin-top: 15px;
+}
+
 /* RANKING */
 
 /* help */
@@ -553,9 +572,12 @@ table {
   background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
 
 .popup-content {
+  position: relative;
+  margin-top: 300px;
   background: white;
   display: grid;
   grid-template-columns: 1fr 6fr;
@@ -563,6 +585,8 @@ table {
   row-gap: 5px;
   padding: 20px;
   border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   /* text-align: center; */
 }
 
@@ -1592,4 +1616,12 @@ table {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.arena-info-box {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }

@@ -41,6 +41,7 @@ const newArenaHandler = (event) => {
     address,
     manager_email: managerEmail,
     manager_name: managerName,
+    ranks: {},
   }).then(() => {
     localStorage.setItem("toast", "Arena created successfully");
     localStorage.setItem("toast_type", "success");
